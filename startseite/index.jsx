@@ -58,9 +58,6 @@ function StackPanel({ id, children, bg = "#fff" }) {
       ref={ref}
       style={{
         position: "relative",
-        marginTop: -20,
-        boxShadow: "0 -8px 40px rgba(0,0,0,0.09)",
-        borderRadius: "20px 20px 0 0",
       }}
     >
       {/* z-index 0: below ConnectingLines (z-index 1) */}
@@ -70,7 +67,6 @@ function StackPanel({ id, children, bg = "#fff" }) {
           inset: 0,
           background: bg,
           zIndex: 0,
-          borderRadius: "20px 20px 0 0",
         }}
       />
       {/* z-index 2: above ConnectingLines (z-index 1) — content covers lines */}
@@ -117,7 +113,7 @@ export default function Page() {
         <Blog36 />
       </StackPanel>
 
-      <StackPanel id="faq" bg="#f7f4ef">
+      <StackPanel id="faq" bg="#fff">
         <Faq2 />
       </StackPanel>
 
@@ -125,7 +121,7 @@ export default function Page() {
         <Cta33 />
       </StackPanel>
 
-      <StackPanel bg="#1a1817">
+      <StackPanel bg="#fff">
         <Footer6 />
       </StackPanel>
     </div>

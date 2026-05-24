@@ -44,7 +44,7 @@ export function BLetterBackground() {
               <text
                 x="-20"
                 y="830"
-                fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
+                fontFamily="'EB Garamond', Georgia, serif"
                 fontWeight="900"
                 fontSize="900"
               >
@@ -68,7 +68,7 @@ export function BLetterBackground() {
           <text
             x="-20"
             y="830"
-            fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
+            fontFamily="'EB Garamond', Georgia, serif"
             fontWeight="900"
             fontSize="900"
             fill="none"

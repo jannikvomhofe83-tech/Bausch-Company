@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const sans = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const sans = "'EB Garamond', Georgia, serif";
 
 const steps = [
   {
@@ -69,7 +69,7 @@ function BBackground({ progress }) {
       {/* Faint dark B — always visible */}
       <text
         x="-20" y="830"
-        fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        fontFamily="'EB Garamond', Georgia, serif"
         fontWeight="300"
         fontSize="900"
         fill="none"
@@ -80,7 +80,7 @@ function BBackground({ progress }) {
       {/* Green B — sliding band */}
       <text
         x="-20" y="830"
-        fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        fontFamily="'EB Garamond', Georgia, serif"
         fontWeight="300"
         fontSize="900"
         fill="none"
@@ -208,7 +208,7 @@ export function Layout302() {
               maxWidth: 310,
             }}
           >
-            Vier Schritte, ein klarer Prozess. Von der Situationsanalyse bis zur stabilen Übergabe — strukturiert, diskret und ohne Überraschungen. Kein Raten, kein Warten im Unklaren.
+            Fünf Schritte, ein klarer Prozess. Von der Situationsanalyse bis zur stabilen Übergabe — strukturiert, diskret und ohne Überraschungen. Durchschnittliche Suchdauer: 9 Wochen.
           </p>
           </div>
         </div>

@@ -140,7 +140,7 @@ export function HeroScroll() {
           }} />
 
           <p style={{
-            fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            fontFamily: "'EB Garamond', Georgia, serif",
             fontSize: "clamp(16px, 1.45vw, 22px)",
             fontWeight: 700,
             color: "#1a1817",
@@ -151,7 +151,7 @@ export function HeroScroll() {
           </p>
 
           <p style={{
-            fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            fontFamily: "'EB Garamond', Georgia, serif",
             fontSize: "clamp(12px, 0.95vw, 14px)",
             fontWeight: 400,
             color: "rgba(26,24,23,0.65)",
@@ -170,7 +170,7 @@ export function HeroScroll() {
                 display: "inline-block",
                 background: "#00693C",
                 color: "#fff",
-                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                fontFamily: "'EB Garamond', Georgia, serif",
                 fontSize: 10,
                 fontWeight: 700,
                 letterSpacing: "0.16em",
@@ -189,7 +189,7 @@ export function HeroScroll() {
                 display: "inline-block",
                 background: "transparent",
                 color: "#1a1817",
-                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                fontFamily: "'EB Garamond', Georgia, serif",
                 fontSize: 10,
                 fontWeight: 700,
                 letterSpacing: "0.16em",

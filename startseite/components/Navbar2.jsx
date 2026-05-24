@@ -84,7 +84,7 @@ const NAV_ITEMS = [
 ];
 
 const navLinkStyle = {
-  fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+  fontFamily: "'EB Garamond', Georgia, serif",
   fontSize: 13,
   fontWeight: 500,
   color: "#1a1817",
@@ -203,7 +203,7 @@ export function Navbar2() {
           {/* Mobile: Kontakt + Burger */}
           <div className="flex items-center gap-4 lg:hidden">
             <Link to="/kontakt" onClick={closeMobileMenu} style={{
-              fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+              fontFamily: "'EB Garamond', Georgia, serif",
               fontSize: 11, fontWeight: 700, letterSpacing: "0.15em",
               textTransform: "uppercase", textDecoration: "none",
               background: "#00693C", color: "#fff",
@@ -250,7 +250,7 @@ export function Navbar2() {
         {/* Desktop: Kontakt button */}
         <div className="hidden justify-self-end lg:block">
           <Link to="/kontakt" style={{
-            fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+            fontFamily: "'EB Garamond', Georgia, serif",
             fontSize: 11, fontWeight: 700, letterSpacing: "0.15em",
             textTransform: "uppercase", textDecoration: "none",
             background: "#00693C", color: "#fff",

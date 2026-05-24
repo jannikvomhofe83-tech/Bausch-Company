@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const sans = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const sans = "'EB Garamond', Georgia, serif";
 
 function CrossIcon({ color = "#00693C" }) {
   return (
@@ -158,7 +158,7 @@ export const situations = [
   },
   {
     id: "wachstum",
-    bg: "#f7f4ef",
+    bg: "#fff",
     color: "#FF5800",
     hoverColor: "#cc4600",
     label: "Wachstum",

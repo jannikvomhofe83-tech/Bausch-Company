@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const sans = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const sans = "'EB Garamond', Georgia, serif";
 
 function CrossIcon() {
   return (
@@ -43,9 +43,9 @@ function CardButton({ to }) {
 
 const cards = [
   {
-    eyebrow: "Zwei Jahrzehnte im Mittelstand",
+    eyebrow: "Seit 2005 · 120+ Mandate",
     headline: "Tiefe Branchenkompetenz",
-    body: "Unsere meist langjährigen Kunden sind vor allem Familienunternehmen aus dem produzierenden Mittelstand diverser Branchen sowie dem Handel — neben traditionsreichen Hidden Champions begleiten wir gerne auch kleinere Unternehmen ab € 20 Mio. Umsatz.",
+    body: "Unsere meist langjährigen Kunden sind vor allem Familienunternehmen aus dem produzierenden Mittelstand diverser Branchen sowie dem Handel — von traditionsreichen Hidden Champions bis zu Unternehmen ab € 20 Mio. Umsatz. Über 95 % aller Mandate wurden erfolgreich abgeschlossen, im Schnitt in 9 Wochen.",
     link: "/ueber-uns",
   },
   {

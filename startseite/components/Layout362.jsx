@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const sans = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const sans = "'EB Garamond', Georgia, serif";
 
 function Highlight({ children, on }) {
   return (
