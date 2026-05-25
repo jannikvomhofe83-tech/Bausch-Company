@@ -1,478 +1,347 @@
 "use client";
 
-import {
-  Button,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from "@relume_io/relume-ui";
-import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-import { RxChevronRight } from "react-icons/rx";
+import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const useRelume = ({ defaultValue, selects }) => {
-  const [activeSelect, setActiveSelect] = useState(defaultValue);
-  const currentSelect = selects.find(function (select) {
-    return select.value === activeSelect;
-  });
-  return { activeSelect, setActiveSelect, currentSelect };
-};
+const serif = "'EB Garamond', Georgia, serif";
+
+const ALL_ARTICLES = [
+  {
+    category: "Nachfolge",
+    date: "Mai 2025",
+    readTime: "9 Min.",
+    title: "Wie gelingt Unternehmensnachfolge im Mittelstand?",
+    description: "Eine gut vorbereitete Übergabe stärkt das Unternehmen für Jahrzehnte — doch die wenigsten Eigentümer bereiten sie früh genug vor.",
+    link: "/insights/unternehmensnachfolge-mittelstand",
+    image: "/insight-1.png",
+  },
+  {
+    category: "Führung",
+    date: "Mai 2025",
+    readTime: "7 Min.",
+    title: "Die 5 größten Fehler bei der Besetzung von Geschäftsführern",
+    description: "Wie Familienunternehmen bei der Führungsnachfolge typische Fallen vermeiden und die richtige Person finden.",
+    link: "/insights/fehler-besetzung-geschaeftsfuehrer",
+    image: "/insight-2.png",
+  },
+  {
+    category: "Transformation",
+    date: "Mai 2025",
+    readTime: "8 Min.",
+    title: "Warum externe Manager in Familienunternehmen scheitern",
+    description: "Kulturfit entscheidet mehr als Qualifikation — Einblicke aus der Praxis des deutschen Mittelstands.",
+    link: "/insights/externe-manager-familienunternehmen",
+    image: "/insight-3.png",
+  },
+  {
+    category: "Nachfolge",
+    date: "April 2025",
+    readTime: "6 Min.",
+    title: "Wann ist der richtige Zeitpunkt für die Unternehmensnachfolge?",
+    description: "Die meisten Eigentümer warten zu lange — und bezahlen den Preis mit einem schlechten Übergang.",
+    link: "/insights/zeitpunkt-unternehmensnachfolge",
+    image: "/insight-1.png",
+  },
+  {
+    category: "Führung",
+    date: "April 2025",
+    readTime: "10 Min.",
+    title: "Externe Führungskräfte in Familienunternehmen",
+    description: "Wie Profis von außen erfolgreich in etablierte Strukturen und gewachsene Kulturen integriert werden.",
+    link: "/insights/externe-fuehrungskraefte-familienunternehmen",
+    image: "/insight-2.png",
+  },
+  {
+    category: "Transformation",
+    date: "März 2025",
+    readTime: "8 Min.",
+    title: "Restrukturierung ohne Kulturbruch",
+    description: "Wie Mittelständler ihre Werte bewahren und gleichzeitig tiefgreifende Veränderungen erfolgreich gestalten.",
+    link: "/insights/restrukturierung-ohne-kulturbruch",
+    image: "/insight-3.png",
+  },
+  {
+    category: "Nachfolge",
+    date: "März 2025",
+    readTime: "7 Min.",
+    title: "Familienunternehmen ohne Familiennachfolger",
+    description: "Wenn kein Kind die Führung übernimmt: Welche Optionen Eigentümer haben und wie sie die richtige wählen.",
+    link: "/insights/familienunternehmen-ohne-nachfolger",
+    image: "/insight-1.png",
+  },
+  {
+    category: "Führung",
+    date: "Februar 2025",
+    readTime: "9 Min.",
+    title: "Führungswechsel: Wie man ihn richtig kommuniziert",
+    description: "Die Ankündigung eines Führungswechsels entscheidet oft über Vertrauen oder Unsicherheit im Team.",
+    link: "/insights/fuehrungswechsel-kommunikation",
+    image: "/insight-2.png",
+  },
+  {
+    category: "Transformation",
+    date: "Februar 2025",
+    readTime: "6 Min.",
+    title: "Digitalisierung im Mittelstand: Führung als Erfolgsfaktor",
+    description: "Technologie allein verändert kein Unternehmen — die Führungskultur entscheidet über Erfolg oder Scheitern.",
+    link: "/insights/digitalisierung-mittelstand-fuehrung",
+    image: "/insight-3.png",
+  },
+];
+
+const CATEGORIES = ["Alle Beiträge", "Nachfolge", "Führung", "Transformation"];
+const PAGE_SIZE = 3;
 
 export function Blog32() {
-  const useActive = useRelume({
-    defaultValue: "all-posts",
-    selects: [
-      {
-        value: "all-posts",
-        trigger: "All Posts",
-        content: [
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-        ],
-      },
-      {
-        value: "category-one",
-        trigger: "Category one",
-        content: [
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-        ],
-      },
-      {
-        value: "category-two",
-        trigger: "Category two",
-        content: [
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-        ],
-      },
-      {
-        value: "category-three",
-        trigger: "Category three",
-        content: [
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-        ],
-      },
-      {
-        value: "category-four",
-        trigger: "Category four",
-        content: [
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-          {
-            url: "#",
-            image: {
-              src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
-              alt: "Relume placeholder image",
-            },
-            category: "Category",
-            readTime: "5 min read",
-            title: "Blog title heading will go here",
-            description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim...",
-            button: {
-              title: "Read more",
-              variant: "link",
-              size: "link",
-              iconRight: <RxChevronRight />,
-            },
-          },
-        ],
-      },
-    ],
-  });
+  const [activeCategory, setActiveCategory] = useState("Alle Beiträge");
+  const [page, setPage] = useState(1);
+
+  const filtered = activeCategory === "Alle Beiträge"
+    ? ALL_ARTICLES
+    : ALL_ARTICLES.filter(a => a.category === activeCategory);
+
+  const visible = filtered.slice(0, page * PAGE_SIZE);
+  const hasMore = visible.length < filtered.length;
+  const hasLess = page > 1;
+
+  const handleCategoryChange = (e) => {
+    setActiveCategory(e.target.value);
+    setPage(1);
+  };
+
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container flex max-w-lg flex-col">
-        <div className="mb-12 text-center md:mb-18 lg:mb-20">
-          <div className="w-full max-w-lg">
-            <p className="mb-3 font-semibold md:mb-4">Artikel</p>
-            <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
-              Nachfolge im Mittelstand
-            </h1>
-            <p className="md:text-md">
-              Wie Familienunternehmen ihre Zukunft sichern und Führung neu
-              denken
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col justify-start">
-          <div className="mb-10">
-            <Select
-              value={useActive.activeSelect}
-              onValueChange={useActive.setActiveSelect}
-            >
-              <SelectTrigger className="min-w-[12.5rem] px-4 py-2 md:w-auto">
-                Alle Beiträge
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all-posts">Alle Beiträge</SelectItem>
-                <SelectItem value="category-one">Nachfolge</SelectItem>
-                <SelectItem value="category-two">Führung</SelectItem>
-                <SelectItem value="category-three">Transformation</SelectItem>
-                <SelectItem value="category-four">Kandidaten</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <AnimatePresence mode="wait">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-            >
-              <div className="grid grid-cols-1 gap-x-12 gap-y-12 md:gap-y-16">
-                <div className="grid gap-x-8 gap-y-6 md:grid-cols-[.5fr_1fr] md:gap-x-10 md:gap-y-4">
-                  <a href="#" className="w-full">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
-                      alt="Relume placeholder image"
-                      className="aspect-square w-full object-cover"
-                    />
-                  </a>
-                  <div className="flex h-full flex-col items-start justify-center">
-                    <div className="rb-4 mb-4 flex w-full items-center justify-start">
-                      <p className="mr-4 bg-background-secondary px-2 py-1 text-sm font-semibold">
-                        Nachfolge
-                      </p>
-                      <p className="inline text-sm font-semibold">9 Minuten</p>
-                    </div>
-                    <a className="mb-2" href="#">
-                      <h3 className="text-xl font-bold md:text-2xl">
-                        Generationswechsel als strategische Chance
-                      </h3>
-                    </a>
-                    <p>
-                      Eine gut vorbereitete Übergabe stärkt das Unternehmen für
-                      Jahrzehnte.
-                    </p>
-                    <Button
-                      className="mt-6 flex items-center justify-center gap-x-2"
-                      variant="link"
-                      size="link"
-                    >
-                      Lesen
-                      <RxChevronRight />
-                    </Button>
-                  </div>
-                </div>
-                <div className="grid gap-x-8 gap-y-6 md:grid-cols-[.5fr_1fr] md:gap-x-10 md:gap-y-4">
-                  <a href="#" className="w-full">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
-                      alt="Relume placeholder image"
-                      className="aspect-square w-full object-cover"
-                    />
-                  </a>
-                  <div className="flex h-full flex-col items-start justify-center">
-                    <div className="rb-4 mb-4 flex w-full items-center justify-start">
-                      <p className="mr-4 bg-background-secondary px-2 py-1 text-sm font-semibold">
-                        Führung
-                      </p>
-                      <p className="inline text-sm font-semibold">7 Minuten</p>
-                    </div>
-                    <a className="mb-2" href="#">
-                      <h3 className="text-xl font-bold md:text-2xl">
-                        Externe Führungskräfte in Familienunternehmen
-                      </h3>
-                    </a>
-                    <p>
-                      Wie Profis von außen erfolgreich in etablierte Strukturen
-                      passen.
-                    </p>
-                    <Button
-                      className="mt-6 flex items-center justify-center gap-x-2"
-                      variant="link"
-                      size="link"
-                    >
-                      Lesen
-                      <RxChevronRight />
-                    </Button>
-                  </div>
-                </div>
-                <div className="grid gap-x-8 gap-y-6 md:grid-cols-[.5fr_1fr] md:gap-x-10 md:gap-y-4">
-                  <a href="#" className="w-full">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
-                      alt="Relume placeholder image"
-                      className="aspect-square w-full object-cover"
-                    />
-                  </a>
-                  <div className="flex h-full flex-col items-start justify-center">
-                    <div className="rb-4 mb-4 flex w-full items-center justify-start">
-                      <p className="mr-4 bg-background-secondary px-2 py-1 text-sm font-semibold">
-                        Transformation
-                      </p>
-                      <p className="inline text-sm font-semibold">8 Minuten</p>
-                    </div>
-                    <a className="mb-2" href="#">
-                      <h3 className="text-xl font-bold md:text-2xl">
-                        Restrukturierung ohne Kulturbruch
-                      </h3>
-                    </a>
-                    <p>
-                      Wie Mittelständler ihre Werte bewahren und gleichzeitig
-                      wachsen.
-                    </p>
-                    <Button
-                      className="mt-6 flex items-center justify-center gap-x-2"
-                      variant="link"
-                      size="link"
-                    >
-                      Lesen
-                      <RxChevronRight />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+    <section style={{
+      padding: "clamp(64px, 9vw, 120px) clamp(40px, 7%, 120px)",
+      background: "#fff",
+    }}>
+
+      {/* Header */}
+      <div style={{ marginBottom: "clamp(40px, 5vw, 64px)", textAlign: "center" }}>
+        <p style={{
+          fontFamily: serif,
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "#00693C",
+          margin: 0,
+          marginBottom: 18,
+        }}>
+          Artikel
+        </p>
+        <h2 style={{
+          fontFamily: serif,
+          fontWeight: 700,
+          fontSize: "clamp(28px, 3.5vw, 52px)",
+          lineHeight: 1.15,
+          letterSpacing: "-0.02em",
+          color: "#1a1817",
+          margin: 0,
+          marginBottom: 14,
+        }}>
+          Nachfolge im Mittelstand
+        </h2>
+        <p style={{
+          fontFamily: serif,
+          fontSize: "clamp(14px, 1.1vw, 18px)",
+          fontWeight: 400,
+          color: "rgba(26,24,23,0.55)",
+          margin: 0,
+        }}>
+          Wie Familienunternehmen ihre Zukunft sichern und Führung neu denken
+        </p>
+      </div>
+
+      {/* Category filter */}
+      <div style={{ marginBottom: "clamp(32px, 4vw, 52px)" }}>
+        <div style={{ position: "relative", display: "inline-block" }}>
+          <select
+            value={activeCategory}
+            onChange={handleCategoryChange}
+            style={{
+              fontFamily: serif,
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              color: "#1a1817",
+              background: "transparent",
+              border: "1.5px solid rgba(26,24,23,0.25)",
+              padding: "10px 44px 10px 18px",
+              cursor: "pointer",
+              outline: "none",
+              appearance: "none",
+              WebkitAppearance: "none",
+              borderRadius: 0,
+            }}
+          >
+            {CATEGORIES.map(cat => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
+          </select>
+          <span style={{
+            position: "absolute",
+            right: 14,
+            top: "50%",
+            transform: "translateY(-50%)",
+            pointerEvents: "none",
+            fontSize: 10,
+            color: "#1a1817",
+          }}>▾</span>
         </div>
       </div>
+
+      {/* Articles list */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeCategory}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.25, ease: "easeInOut" }}
+          style={{ display: "flex", flexDirection: "column", gap: "clamp(28px, 4vw, 48px)" }}
+        >
+          {visible.map((article) => (
+            <ArticleRow key={article.link} article={article} />
+          ))}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Weitere Artikel / Weniger anzeigen buttons */}
+      {(hasMore || hasLess) && (
+        <div style={{
+          marginTop: "clamp(40px, 5vw, 64px)",
+          borderTop: "1px solid rgba(26,24,23,0.1)",
+          paddingTop: "clamp(28px, 3vw, 44px)",
+          display: "flex",
+          justifyContent: "center",
+          gap: 16,
+        }}>
+          {hasMore && (
+            <button
+              onClick={() => setPage(p => p + 1)}
+              style={{
+                fontFamily: serif,
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "#fff",
+                background: "#1a1817",
+                border: "none",
+                padding: "13px 40px",
+                borderRadius: "100px",
+                cursor: "pointer",
+              }}
+            >
+              Weitere Artikel
+            </button>
+          )}
+          {hasLess && (
+            <button
+              onClick={() => setPage(1)}
+              style={{
+                fontFamily: serif,
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                color: "#1a1817",
+                background: "transparent",
+                border: "1.5px solid rgba(26,24,23,0.25)",
+                padding: "13px 40px",
+                borderRadius: "100px",
+                cursor: "pointer",
+              }}
+            >
+              Weniger anzeigen
+            </button>
+          )}
+        </div>
+      )}
     </section>
+  );
+}
+
+function ArticleRow({ article }) {
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "clamp(160px, 22vw, 280px) 1fr",
+      gap: "clamp(20px, 3.5vw, 52px)",
+      alignItems: "center",
+      borderTop: "1px solid rgba(26,24,23,0.08)",
+      paddingTop: "clamp(24px, 3vw, 40px)",
+    }}>
+      <Link to={article.link} style={{ display: "block", textDecoration: "none", flexShrink: 0 }}>
+        <img
+          src={article.image}
+          alt={article.title}
+          style={{
+            width: "100%",
+            aspectRatio: "3 / 2",
+            objectFit: "cover",
+            display: "block",
+          }}
+        />
+      </Link>
+
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 18, marginBottom: 14 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{
+              width: 8, height: 8, borderRadius: "50%",
+              border: "1.5px solid #00693C", flexShrink: 0,
+            }} />
+            <span style={{
+              fontFamily: serif, fontSize: 11, fontWeight: 700,
+              letterSpacing: "0.14em", textTransform: "uppercase",
+              color: "#00693C",
+            }}>{article.category}</span>
+          </div>
+          <span style={{
+            fontFamily: serif, fontSize: 12,
+            color: "rgba(26,24,23,0.4)", fontWeight: 400,
+          }}>{article.readTime}</span>
+        </div>
+
+        <Link to={article.link} style={{ textDecoration: "none" }}>
+          <h3 style={{
+            fontFamily: serif, fontWeight: 700,
+            fontSize: "clamp(17px, 1.6vw, 24px)",
+            lineHeight: 1.2, letterSpacing: "-0.02em",
+            color: "#1a1817", margin: 0, marginBottom: 10,
+          }}>
+            {article.title}
+          </h3>
+        </Link>
+
+        <p style={{
+          fontFamily: serif,
+          fontSize: "clamp(13px, 1vw, 16px)",
+          fontWeight: 400,
+          color: "rgba(26,24,23,0.6)",
+          margin: 0,
+          lineHeight: 1.75,
+        }}>
+          {article.description}
+        </p>
+
+        <Link
+          to={article.link}
+          style={{
+            fontFamily: serif, fontSize: 11, fontWeight: 700,
+            letterSpacing: "0.14em", textTransform: "uppercase",
+            color: "#1a1817", textDecoration: "none",
+            display: "inline-flex", alignItems: "center", gap: 14,
+            marginTop: 18,
+          }}
+        >
+          Lesen
+          <span style={{ display: "block", height: 1, width: 52, background: "#1a1817", flexShrink: 0 }} />
+        </Link>
+      </div>
+    </div>
   );
 }

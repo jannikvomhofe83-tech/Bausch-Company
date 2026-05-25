@@ -1,23 +1,19 @@
 import React from "react";
 import { Navbar2 } from "./components/Navbar2";
-import { Header62 } from "./components/Header62";
+import { HeroInsights } from "./components/HeroInsights";
 import { Blog32 } from "./components/Blog32";
-import { Blog36 } from "./components/Blog36";
-import { Layout401 } from "./components/Layout401";
-import { Cta32 } from "./components/Cta32";
-import { Cta58 } from "./components/Cta58";
+import { LeadMagnetTeaser } from "./components/LeadMagnetTeaser";
 import { Footer6 } from "./components/Footer6";
 
 export default function Page() {
   return (
-    <div>
-      <Navbar2 />
-      <Header62 />
+    <div style={{ position: "relative" }}>
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <Navbar2 />
+      </div>
+      <HeroInsights />
       <div id="artikel"><Blog32 /></div>
-      <Blog36 />
-      <div id="themen"><Layout401 /></div>
-      <Cta32 />
-      <Cta58 />
+      <LeadMagnetTeaser />
       <Footer6 />
     </div>
   );
