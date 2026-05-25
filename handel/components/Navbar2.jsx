@@ -1,8 +1,8 @@
 "use client";
 
-import { Button, useMediaQuery } from "@relume_io/relume-ui";
+import { useMediaQuery } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { RxChevronDown } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
@@ -12,7 +12,9 @@ const NAV_ITEMS = [
     to: "/",
     children: [
       { label: "Zielgruppen", to: "/#zielgruppen" },
-      { label: "Beratungsfelder", to: "/#beratung" },
+      { label: "Nachfolge", to: "/#nachfolge" },
+      { label: "Wachstum", to: "/#wachstum" },
+      { label: "Transformation", to: "/#transformation" },
       { label: "Unser Ansatz", to: "/#ansatz" },
       { label: "Vorgehen", to: "/#prozess" },
       { label: "FAQ", to: "/#faq" },
@@ -51,14 +53,7 @@ const NAV_ITEMS = [
     to: "/branchen",
     children: [
       { label: "Maschinenbau", to: "/maschinenbau" },
-      { label: "Handel", to: "/handel" },
-      { label: "Bau", to: "/bau" },
-      { label: "Gesundheit", to: "/gesundheit" },
-      { label: "Tech", to: "/tech" },
-      { label: "Konsumgüter", to: "/konsumgueter" },
-      { label: "Logistik", to: "/logistik" },
-      { label: "Dienstleistung", to: "/dienstleistung" },
-    ],
+      { label: "Handel", to: "/handel" },    ],
   },
   {
     label: "Insights",
@@ -81,12 +76,23 @@ const NAV_ITEMS = [
   },
 ];
 
-function NavDropdownItem({ item, isMobile, onClose }) {
+function NavDropdownItem({ item, isMobile, onClose, textColor }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleMouseEnter = () => { if (!isMobile) setIsOpen(true); };
   const handleMouseLeave = () => { if (!isMobile) setIsOpen(false); };
-  const handleToggle = () => { if (isMobile) setIsOpen((prev) => !prev); };
+  const handleToggle     = () => { if (isMobile)  setIsOpen((prev) => !prev); };
+
+  const navLinkStyle = {
+    fontFamily: "'EB Garamond', Georgia, serif",
+    fontSize: 13,
+    fontWeight: 500,
+    color: textColor,
+    textDecoration: "none",
+    letterSpacing: "0.01em",
+    whiteSpace: "nowrap",
+    transition: "color 0.3s ease",
+  };
 
   return (
     <div
@@ -97,7 +103,8 @@ function NavDropdownItem({ item, isMobile, onClose }) {
       <div className="flex w-full items-center justify-center lg:w-auto lg:flex-none lg:justify-start">
         <Link
           to={item.to}
-          className="py-3 text-md lg:pl-4 lg:py-2 lg:text-base"
+          className="py-3 lg:pl-4 lg:py-2"
+          style={navLinkStyle}
           onClick={() => { onClose?.(); }}
         >
           {item.label}
@@ -105,14 +112,15 @@ function NavDropdownItem({ item, isMobile, onClose }) {
         <button
           className="px-2 py-3 lg:pr-4 lg:py-2"
           onClick={handleToggle}
+          style={{ color: textColor, transition: "color 0.3s ease" }}
         >
-        <motion.span
-          variants={{ rotated: { rotate: 180 }, initial: { rotate: 0 } }}
-          animate={isOpen ? "rotated" : "initial"}
-          transition={{ duration: 0.3 }}
-        >
-          <RxChevronDown />
-        </motion.span>
+          <motion.span
+            variants={{ rotated: { rotate: 180 }, initial: { rotate: 0 } }}
+            animate={isOpen ? "rotated" : "initial"}
+            transition={{ duration: 0.3 }}
+          >
+            <RxChevronDown />
+          </motion.span>
         </button>
       </div>
 
@@ -120,20 +128,27 @@ function NavDropdownItem({ item, isMobile, onClose }) {
         {isOpen && (
           <motion.nav
             variants={{
-              open: { visibility: "visible", opacity: 1, display: "block", y: 0 },
-              close: { visibility: "hidden", opacity: 0, display: "none", y: "25%" },
+              open:  { visibility: "visible", opacity: 1, display: "block", y: 0 },
+              close: { visibility: "hidden",  opacity: 0, display: "none",  y: "25%" },
             }}
             animate="open"
             initial="close"
             exit="close"
             transition={{ duration: 0.2 }}
-            className="bg-background-primary lg:absolute lg:left-0 lg:top-full lg:z-50 lg:min-w-[160px] lg:border lg:border-border-primary lg:p-2"
+            style={{
+              background: "rgba(232,227,218,0.96)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              borderTop: "2px solid #00693C",
+            }}
+            className="lg:absolute lg:left-0 lg:top-full lg:z-50 lg:min-w-[160px] lg:p-2"
           >
             {item.children.map((child) => (
               <Link
                 key={child.to}
                 to={child.to}
                 className="block py-2 text-center text-sm lg:px-4 lg:py-2 lg:text-left"
+                style={{ fontFamily: "'EB Garamond', Georgia, serif", fontSize: 12, color: "#1a1817", textDecoration: "none" }}
                 onClick={() => { setIsOpen(false); onClose?.(); }}
               >
                 {child.label}
@@ -148,66 +163,82 @@ function NavDropdownItem({ item, isMobile, onClose }) {
 
 export function Navbar2() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  const closeMobileMenu  = () => setIsMobileMenuOpen(false);
 
-  const animateMobileMenu = isMobileMenuOpen ? "open" : "close";
-  const animateMobileMenuButtonSpan = isMobileMenuOpen
-    ? ["open", "rotatePhase"]
-    : "closed";
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const animateMobileMenu           = isMobileMenuOpen ? "open" : "close";
+  const animateMobileMenuButtonSpan = isMobileMenuOpen ? ["open", "rotatePhase"] : "closed";
+
+  // White hero: always dark text, logo always normal (no invert)
+  const textColor   = "#1a1817";
+  const burgerColor = "#1a1817";
 
   return (
     <section
       id="relume"
-      className="flex w-full items-center border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%]"
+      className="flex w-full items-center lg:min-h-18 lg:px-[5%]"
+      style={{
+        background: scrolled ? "rgba(247,244,239,0.97)" : "transparent",
+        borderTop: "3px solid #00693C",
+        borderBottom: scrolled ? "1px solid rgba(26,24,23,0.08)" : "none",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+        transition: "background 0.3s ease, border-color 0.3s ease",
+      }}
     >
       <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-          <Link to="/" onClick={closeMobileMenu} style={{ display: "flex", alignItems: "center" }}><img src="/bild-23.png" alt="Bausch &amp; Company" style={{ height: 44, width: "auto", display: "block", mixBlendMode: "multiply" }} /></Link>
+          <Link to="/" onClick={closeMobileMenu} style={{ display: "flex", alignItems: "center" }}>
+            <img
+              src="/bild-23.png"
+              alt="Bausch & Company"
+              style={{
+                height: 44,
+                width: "auto",
+                display: "block",
+                mixBlendMode: "multiply",
+                transition: "filter 0.3s ease",
+              }}
+            />
+          </Link>
+
+          {/* Mobile: Kontakt + Burger */}
           <div className="flex items-center gap-4 lg:hidden">
-            <Link to="/kontakt" onClick={closeMobileMenu}>
-              <Button className="w-full px-4 py-1" title="Kontakt" size="sm">
-                Kontakt
-              </Button>
+            <Link to="/kontakt" onClick={closeMobileMenu} style={{
+              fontFamily: "'EB Garamond', Georgia, serif",
+              fontSize: 11, fontWeight: 700, letterSpacing: "0.15em",
+              textTransform: "uppercase", textDecoration: "none",
+              background: "#00693C", color: "#fff",
+              padding: "7px 14px", borderRadius: "100px",
+            }}>
+              Kontakt
             </Link>
             <button
               className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
               onClick={toggleMobileMenu}
             >
-              <motion.span
-                className="my-[3px] h-0.5 w-6 bg-black"
-                animate={animateMobileMenuButtonSpan}
-                variants={{
-                  open: { translateY: 8, transition: { delay: 0.1 } },
-                  rotatePhase: { rotate: -45, transition: { delay: 0.2 } },
-                  closed: { translateY: 0, rotate: 0, transition: { duration: 0.2 } },
-                }}
-              />
-              <motion.span
-                className="my-[3px] h-0.5 w-6 bg-black"
-                animate={animateMobileMenu}
-                variants={{
-                  open: { width: 0, transition: { duration: 0.1 } },
-                  closed: { width: "1.5rem", transition: { delay: 0.3, duration: 0.2 } },
-                }}
-              />
-              <motion.span
-                className="my-[3px] h-0.5 w-6 bg-black"
-                animate={animateMobileMenuButtonSpan}
-                variants={{
-                  open: { translateY: -8, transition: { delay: 0.1 } },
-                  rotatePhase: { rotate: 45, transition: { delay: 0.2 } },
-                  closed: { translateY: 0, rotate: 0, transition: { duration: 0.2 } },
-                }}
-              />
+              <motion.span className="my-[3px] h-0.5 w-6" style={{ background: burgerColor }} animate={animateMobileMenuButtonSpan}
+                variants={{ open: { translateY: 8, transition: { delay: 0.1 } }, rotatePhase: { rotate: -45, transition: { delay: 0.2 } }, closed: { translateY: 0, rotate: 0, transition: { duration: 0.2 } } }} />
+              <motion.span className="my-[3px] h-0.5 w-6" style={{ background: burgerColor }} animate={animateMobileMenu}
+                variants={{ open: { width: 0, transition: { duration: 0.1 } }, closed: { width: "1.5rem", transition: { delay: 0.3, duration: 0.2 } } }} />
+              <motion.span className="my-[3px] h-0.5 w-6" style={{ background: burgerColor }} animate={animateMobileMenuButtonSpan}
+                variants={{ open: { translateY: -8, transition: { delay: 0.1 } }, rotatePhase: { rotate: 45, transition: { delay: 0.2 } }, closed: { translateY: 0, rotate: 0, transition: { duration: 0.2 } } }} />
             </button>
           </div>
         </div>
 
+        {/* Nav items */}
         <motion.div
           variants={{
-            open: { height: "var(--height-open, 100dvh)" },
+            open:  { height: "var(--height-open, 100dvh)" },
             close: { height: "var(--height-closed, 0)" },
           }}
           animate={animateMobileMenu}
@@ -222,15 +253,22 @@ export function Navbar2() {
               item={item}
               isMobile={isMobile}
               onClose={closeMobileMenu}
+              textColor={textColor}
             />
           ))}
         </motion.div>
 
+        {/* Desktop: Kontakt button */}
         <div className="hidden justify-self-end lg:block">
-          <Link to="/kontakt">
-            <Button className="px-6 py-2" title="Kontakt" size="sm">
-              Kontakt
-            </Button>
+          <Link to="/kontakt" style={{
+            fontFamily: "'EB Garamond', Georgia, serif",
+            fontSize: 11, fontWeight: 700, letterSpacing: "0.15em",
+            textTransform: "uppercase", textDecoration: "none",
+            background: "#00693C", color: "#fff",
+            padding: "9px 20px", borderRadius: "100px",
+            display: "inline-block",
+          }}>
+            Kontakt
           </Link>
         </div>
       </div>

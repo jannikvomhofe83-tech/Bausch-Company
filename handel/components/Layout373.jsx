@@ -2,7 +2,7 @@ import React from "react";
 
 const serif = "'EB Garamond', Georgia, serif";
 
-export function Layout353() {
+export function Layout373() {
   return (
     <section style={{
       background: "#fff",
@@ -10,41 +10,12 @@ export function Layout353() {
       overflow: "hidden",
     }}>
 
-      {/* Left: vertical "Stärken" */}
-      <div style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "clamp(40px, 5vw, 80px) clamp(80px, 10vw, 160px)",
-        flexShrink: 0,
-      }}>
-        <span style={{
-          fontFamily: serif,
-          fontWeight: 700,
-          fontSize: "clamp(60px, 9vw, 150px)",
-          color: "#1a1817",
-          writingMode: "vertical-rl",
-          transform: "rotate(180deg)",
-          letterSpacing: "-0.02em",
-          lineHeight: 1,
-          userSelect: "none",
-          whiteSpace: "nowrap",
-        }}>
-          Stärken
-        </span>
-      </div>
+      {/* Left spacer — pushes everything to the right */}
+      <div style={{ flex: 1 }} />
 
-      {/* Divider */}
+      {/* Text content */}
       <div style={{
-        width: 1,
-        background: "#1a1817",
         flexShrink: 0,
-        margin: "clamp(40px, 6vw, 80px) 0",
-      }} />
-
-      {/* Right: label + 3 differentiators */}
-      <div style={{
-        flex: 1,
         padding: "clamp(32px, 4vw, 60px) clamp(32px, 4vw, 64px)",
         display: "flex",
         flexDirection: "column",
@@ -61,7 +32,7 @@ export function Layout353() {
           color: "#1a1817",
           margin: 0,
         }}>
-          Vorteile · Was uns im Handel unterscheidet
+          Herausforderungen · Was Handelsunternehmen bewegt
         </p>
 
         <div>
@@ -74,7 +45,7 @@ export function Layout353() {
             margin: "0 0 0.4em",
             letterSpacing: "-0.01em",
           }}>
-            Handelserfahrung aus erster Hand
+            Omnichannel und digitale Transformation
           </h3>
           <p style={{
             fontFamily: serif,
@@ -85,9 +56,10 @@ export function Layout353() {
             margin: 0,
             maxWidth: "55ch",
           }}>
-            Wir kennen den Handel nicht aus der Theorie, sondern aus der Praxis.
-            Unser Netzwerk reicht von Filialunternehmen über Einkaufsorganisationen
-            bis hin zu digitalen Handelspionieren — quer durch den DACH-Raum.
+            E-Commerce, Plattformwettbewerb und veränderte Kundenwege stellen
+            den klassischen Handel vor neue Führungsfragen. Gesucht werden
+            Persönlichkeiten, die das Stationäre und das Digitale wirklich
+            zusammendenken können.
           </p>
         </div>
 
@@ -101,7 +73,7 @@ export function Layout353() {
             margin: "0 0 0.4em",
             letterSpacing: "-0.01em",
           }}>
-            Zugang zu Kandidaten, die nicht aktiv suchen
+            Margendruck und Marktkonsolidierung
           </h3>
           <p style={{
             fontFamily: serif,
@@ -112,9 +84,9 @@ export function Layout353() {
             margin: 0,
             maxWidth: "55ch",
           }}>
-            Die besten Führungskräfte im Handel sind selten auf dem offenen Markt.
-            Wir sprechen sie direkt an — auf Basis von echtem Vertrauen,
-            das über Jahre gewachsen ist.
+            Steigende Kosten, sinkende Margen, wachsender Wettbewerb durch
+            internationale Player. Führungskräfte im Handel müssen Effizienz
+            und Wachstum gleichzeitig denken — und teams dabei mitnehmen.
           </p>
         </div>
 
@@ -128,7 +100,7 @@ export function Layout353() {
             margin: "0 0 0.4em",
             letterSpacing: "-0.01em",
           }}>
-            Kulturfit vor Qualifikation
+            Führungswechsel im Familienhandel
           </h3>
           <p style={{
             fontFamily: serif,
@@ -139,9 +111,9 @@ export function Layout353() {
             margin: 0,
             maxWidth: "55ch",
           }}>
-            Im Handel entscheiden Haltung und Führungskultur über Erfolg oder
-            Scheitern. Wir suchen nicht nach dem besten Lebenslauf —
-            sondern nach der Person, die in diese Situation wirklich passt.
+            Viele Handelsunternehmen im DACH-Raum sind inhabergeführt und stehen
+            vor dem Generationswechsel. Die Nachfolge entscheidet über Kontinuität
+            oder Bruch — und braucht mehr als einen guten Lebenslauf.
           </p>
         </div>
 
@@ -159,8 +131,7 @@ export function Layout353() {
             color: "#1a1817",
             margin: "0 0 0.5em",
           }}>
-            „First who, then what. Get the right people on the bus,
-            then figure out where to drive it."
+            „Change before you have to."
           </p>
           <p style={{
             fontFamily: serif,
@@ -171,10 +142,41 @@ export function Layout353() {
             color: "#1a1817",
             margin: 0,
           }}>
-            Jim Collins · Good to Great
+            Jack Welch
           </p>
         </div>
 
+      </div>
+
+      {/* Divider */}
+      <div style={{
+        width: 1,
+        background: "#1a1817",
+        flexShrink: 0,
+        margin: "clamp(40px, 6vw, 80px) 0",
+      }} />
+
+      {/* Right: vertical "Wandel" */}
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "clamp(40px, 5vw, 80px) clamp(80px, 10vw, 160px)",
+        flexShrink: 0,
+      }}>
+        <span style={{
+          fontFamily: serif,
+          fontWeight: 700,
+          fontSize: "clamp(60px, 9vw, 150px)",
+          color: "#1a1817",
+          writingMode: "vertical-rl",
+          letterSpacing: "-0.02em",
+          lineHeight: 1,
+          userSelect: "none",
+          whiteSpace: "nowrap",
+        }}>
+          Wandel
+        </span>
       </div>
 
     </section>

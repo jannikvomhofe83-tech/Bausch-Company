@@ -51,14 +51,7 @@ const NAV_ITEMS = [
     to: "/branchen",
     children: [
       { label: "Maschinenbau", to: "/maschinenbau" },
-      { label: "Handel", to: "/handel" },
-      { label: "Bau", to: "/bau" },
-      { label: "Gesundheit", to: "/gesundheit" },
-      { label: "Tech", to: "/tech" },
-      { label: "Konsumgüter", to: "/konsumgueter" },
-      { label: "Logistik", to: "/logistik" },
-      { label: "Dienstleistung", to: "/dienstleistung" },
-    ],
+      { label: "Handel", to: "/handel" },    ],
   },
   {
     label: "Insights",
