@@ -98,6 +98,42 @@ export function HeroScroll() {
           </div>
         </div>
 
+        {/* Zitat – oben rechts */}
+        <div style={{
+          position: "absolute",
+          top: "clamp(140px, 18vh, 200px)",
+          right: "7%",
+          zIndex: 2,
+          maxWidth: "clamp(200px, 22vw, 300px)",
+          textAlign: "right",
+          opacity: loaded ? 1 : 0,
+          transition: "opacity 0.8s 0.4s",
+          pointerEvents: "none",
+        }}>
+          <p style={{
+            fontFamily: "'EB Garamond', serif",
+            fontStyle: "italic",
+            fontWeight: 400,
+            fontSize: "clamp(12px, 1.05vw, 15px)",
+            lineHeight: 1.7,
+            color: "rgba(26,24,23,0.45)",
+            margin: "0 0 8px",
+          }}>
+            „Zusammenkommen ist ein Beginn, Zusammenbleiben ein Fortschritt, Zusammenarbeiten ein Erfolg."
+          </p>
+          <span style={{
+            fontFamily: "'EB Garamond', serif",
+            fontStyle: "normal",
+            fontWeight: 600,
+            fontSize: "clamp(10px, 0.85vw, 12px)",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: "rgba(26,24,23,0.3)",
+          }}>
+            — Henry Ford
+          </span>
+        </div>
+
         {/* Berg + Zebras */}
         <div
           style={{

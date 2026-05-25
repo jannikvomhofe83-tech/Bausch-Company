@@ -1,215 +1,106 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const sans = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const serif = "'EB Garamond', Georgia, serif";
 
-function CrossIcon() {
-  return (
-    <div style={{ position: "relative", width: 18, height: 18, flexShrink: 0 }}>
-      <div style={{
-        position: "absolute", top: "50%", left: 0, right: 0,
-        height: 1.5, background: "#00693C", transform: "translateY(-50%)",
-      }} />
-      <div style={{
-        position: "absolute", left: "50%", top: 0, bottom: 0,
-        width: 1.5, background: "#00693C", transform: "translateX(-50%)",
-      }} />
-    </div>
-  );
-}
-
-const features = [
-  {
-    title: "Rolle klären",
-    body: "Anforderungen präzise definieren, bevor die Suche beginnt — nicht was das Unternehmen zuletzt hatte, sondern was es jetzt braucht.",
-  },
-  {
-    title: "Person finden",
-    body: "Kandidaten aus unserem Netzwerk, diskret angesprochen — ohne dass ein laufendes Mandat nach außen dringt.",
-  },
-];
-
-const stats = [
-  { value: "120+", label: "Mandate erfolgreich\nbegleitet" },
-  { value: "95%+", label: "Erfolgsquote über\nalle Mandate" },
-  { value: "9 Wo.", label: "Durchschnittliche\nSuchdauer" },
-  { value: "2005", label: "Gegründet in\nMünchen" },
+const steps = [
+  "Situationsanalyse",
+  "Rollendefinition",
+  "Diskrete Suche",
+  "Kandidatenbewertung",
+  "Begleitung der Übergabe",
 ];
 
 export function Layout10() {
   return (
     <section style={{
-      padding: "clamp(72px, 10vw, 120px) clamp(40px, 7%, 120px)",
+      padding: "clamp(40px, 5vw, 64px) clamp(40px, 7%, 120px) clamp(56px, 8vw, 96px)",
       background: "#fff",
     }}>
       <div style={{
         display: "grid",
-        gridTemplateColumns: "1fr 400px",
-        gap: "clamp(48px, 8vw, 100px)",
-        alignItems: "center",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "clamp(48px, 8vw, 120px)",
+        alignItems: "start",
       }}>
 
-        {/* Left: text content */}
+        {/* Left: flowing text */}
         <div>
           <p style={{
-            fontFamily: sans,
-            fontSize: 11,
-            fontWeight: 700,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "#00693C",
-            margin: "0 0 16px",
-          }}>
-            Methodik
-          </p>
-
-          <h2 style={{
-            fontFamily: sans,
-            fontWeight: 900,
-            fontSize: "clamp(32px, 4.5vw, 60px)",
-            lineHeight: 1.0,
-            letterSpacing: "-0.03em",
-            color: "#1a1817",
-            margin: "0 0 clamp(20px, 2.5vw, 32px)",
-          }}>
-            Wie wir Nachfolge wirklich angehen.
-          </h2>
-
-          <p style={{
-            fontFamily: sans,
-            fontSize: "clamp(15px, 1.3vw, 18px)",
+            fontFamily: serif,
+            fontSize: "clamp(15px, 1.25vw, 18px)",
             fontWeight: 400,
-            color: "rgba(26,24,23,0.62)",
-            lineHeight: 1.75,
-            margin: "0 0 clamp(36px, 5vw, 56px)",
-            maxWidth: 520,
+            color: "rgba(26,24,23,0.75)",
+            lineHeight: 1.8,
+            margin: "0 0 1.4em",
           }}>
-            Die meisten Fehlentscheidungen entstehen nicht in der Auswahl, sondern in der unklaren Definition der Rolle. Wir beginnen dort, wo andere aufhören.
+            Wir gewinnen für unsere Kunden jene Kandidaten, die neben exzellenten Qualifikationen auch über den Charakter verfügen, der für einen nachhaltigen Unternehmenserfolg erforderlich ist: Persönlichkeiten, die neben einem klugen Kopf und dem Gespür für richtige Entscheidungen auch über einen intakten Wertekanon verfügen.
           </p>
-
-          {/* Feature items */}
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "clamp(24px, 3vw, 40px)",
-            marginBottom: "clamp(36px, 5vw, 56px)",
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(15px, 1.25vw, 18px)",
+            fontWeight: 400,
+            color: "rgba(26,24,23,0.75)",
+            lineHeight: 1.8,
+            margin: "0 0 1.4em",
           }}>
-            {features.map(({ title, body }) => (
-              <div key={title}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                  <CrossIcon />
-                  <h3 style={{
-                    fontFamily: sans,
-                    fontWeight: 700,
-                    fontSize: "clamp(14px, 1.1vw, 16px)",
-                    letterSpacing: "-0.01em",
-                    color: "#1a1817",
-                    margin: 0,
-                  }}>
-                    {title}
-                  </h3>
-                </div>
-                <p style={{
-                  fontFamily: sans,
-                  fontSize: "clamp(12px, 0.9vw, 14px)",
-                  fontWeight: 400,
-                  color: "rgba(26,24,23,0.55)",
-                  lineHeight: 1.7,
-                  margin: 0,
-                }}>
-                  {body}
-                </p>
-              </div>
-            ))}
-          </div>
+            Die meisten Fehlbesetzungen entstehen nicht in der Suche — sondern weil die Rolle nie klar definiert wurde. Bevor wir suchen, stellen wir die entscheidende Frage: Welche Führung braucht dieses Unternehmen in seiner aktuellen Situation wirklich? Nicht welche Führung es zuletzt hatte, und nicht welche es sich wünscht — sondern welche es jetzt braucht.
+          </p>
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(15px, 1.25vw, 18px)",
+            fontWeight: 400,
+            color: "rgba(26,24,23,0.75)",
+            lineHeight: 1.8,
+            margin: "0 0 clamp(28px, 4vw, 48px)",
+          }}>
+            Dieser Schritt ist nicht optional — er ist unser Fundament für jedes Mandat, das wir annehmen. Erst wenn diese Frage ehrlich beantwortet ist, beginnen wir. Durchschnittliche Suchdauer: 9 Wochen.
+          </p>
 
           <Link
             to="/kontakt"
             style={{
-              fontFamily: sans,
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "#fff",
-              background: "#1a1817",
+              fontFamily: serif,
+              fontSize: "clamp(13px, 1vw, 15px)",
+              fontWeight: 500,
+              color: "#1a1817",
               textDecoration: "none",
-              padding: "16px 32px",
-              borderRadius: 4,
-              display: "inline-block",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 12,
             }}
           >
             Gespräch vereinbaren
+            <svg width="32" height="16" viewBox="0 0 32 16" fill="none">
+              <line x1="0" y1="8" x2="24" y2="8" stroke="#1a1817" strokeWidth="1.3" />
+              <polyline points="17,2 24,8 17,14" fill="none" stroke="#1a1817" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </Link>
         </div>
 
-        {/* Right: stats panel */}
-        <div style={{
-          background: "#1a1817",
-          borderRadius: 8,
-          padding: "clamp(36px, 4vw, 52px)",
-        }}>
-          <p style={{
-            fontFamily: sans,
-            fontSize: 11,
-            fontWeight: 700,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.4)",
-            margin: "0 0 32px",
-          }}>
-            In Zahlen
-          </p>
-
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "clamp(24px, 3vw, 36px)",
-          }}>
-            {stats.map(({ value, label }) => (
-              <div key={value}>
-                <p style={{
-                  fontFamily: sans,
-                  fontWeight: 900,
-                  fontSize: "clamp(32px, 3.5vw, 48px)",
-                  lineHeight: 1,
-                  letterSpacing: "-0.03em",
-                  color: "#00693C",
-                  margin: "0 0 8px",
-                }}>
-                  {value}
-                </p>
-                <p style={{
-                  fontFamily: sans,
-                  fontSize: 12,
-                  fontWeight: 400,
-                  color: "rgba(255,255,255,0.5)",
-                  lineHeight: 1.5,
-                  margin: 0,
-                  whiteSpace: "pre-line",
-                }}>
-                  {label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div style={{
-            marginTop: "clamp(32px, 4vw, 48px)",
-            paddingTop: "clamp(24px, 3vw, 36px)",
-            borderTop: "1px solid rgba(255,255,255,0.1)",
-          }}>
-            <p style={{
-              fontFamily: sans,
-              fontSize: "clamp(13px, 1vw, 15px)",
-              fontWeight: 400,
-              color: "rgba(255,255,255,0.55)",
-              lineHeight: 1.7,
-              margin: 0,
-            }}>
-              Bausch & Company begleitet Eigentümer von Familienunternehmen seit 2005 — diskret, strukturiert und mit klarem Fokus auf nachhaltige Besetzungen.
-            </p>
-          </div>
+        {/* Right: step list with dividers */}
+        <div>
+          {steps.map((step, i) => (
+            <div
+              key={step}
+              style={{
+                borderTop: "1px solid rgba(26,24,23,0.1)",
+                padding: "clamp(14px, 1.8vw, 22px) 0",
+                borderBottom: i === steps.length - 1 ? "1px solid rgba(26,24,23,0.1)" : "none",
+              }}
+            >
+              <p style={{
+                fontFamily: serif,
+                fontSize: "clamp(15px, 1.2vw, 18px)",
+                fontWeight: 400,
+                color: "#1a1817",
+                margin: 0,
+                lineHeight: 1.3,
+              }}>
+                {step}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

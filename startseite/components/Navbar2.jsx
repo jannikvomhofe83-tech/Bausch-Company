@@ -198,7 +198,7 @@ export function Navbar2() {
     >
       <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-          <Link to="/" onClick={closeMobileMenu} />
+          <Link to="/" onClick={closeMobileMenu} style={{ display: "flex", alignItems: "center" }}><img src="/bild-23.png" alt="Bausch &amp; Company" style={{ height: 44, width: "auto", display: "block", mixBlendMode: "multiply" }} /></Link>
 
           {/* Mobile: Kontakt + Burger */}
           <div className="flex items-center gap-4 lg:hidden">

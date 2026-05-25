@@ -1,60 +1,68 @@
-"use client";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Button } from "@relume_io/relume-ui";
-import React from "react";
+const serif = "'EB Garamond', Georgia, serif";
 
 export function Cta33() {
+  const [hover, setHover] = useState(false);
+
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
-        <div className="mb-8 md:mb-10 lg:mb-12">
-          <div className="mx-auto w-full max-w-lg text-center">
-            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              Checkliste
-            </h2>
-            <p className="md:text-md">
-              Nachfolge strukturiert planen und umsetzen
-            </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-              <Button title="Laden">Laden</Button>
-              <Button title="Sprechen" variant="secondary">
-                Sprechen
-              </Button>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 py-2">
-          <img
-            src="https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg"
-            alt="Webflow logo 1"
-            className="max-h-12 md:max-h-14"
-          />
-          <img
-            src="https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg"
-            alt="Relume logo 1"
-            className="max-h-12 md:max-h-14"
-          />
-          <img
-            src="https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg"
-            alt="Webflow logo 2"
-            className="max-h-12 md:max-h-14"
-          />
-          <img
-            src="https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg"
-            alt="Relume logo 2"
-            className="max-h-12 md:max-h-14"
-          />
-          <img
-            src="https://d22po4pjz3o32e.cloudfront.net/webflow-logo.svg"
-            alt="Webflow logo 3"
-            className="max-h-12 md:max-h-14"
-          />
-          <img
-            src="https://d22po4pjz3o32e.cloudfront.net/relume-logo.svg"
-            alt="Relume logo 3"
-            className="max-h-12 md:max-h-14"
-          />
-        </div>
+    <section style={{
+      padding: "clamp(40px, 5vw, 64px) clamp(40px, 7%, 120px) clamp(64px, 9vw, 100px)",
+      background: "#fff",
+      textAlign: "center",
+    }}>
+      <div style={{ maxWidth: 680, margin: "0 auto" }}>
+        <p style={{
+          fontFamily: serif,
+          fontSize: "clamp(15px, 1.25vw, 18px)",
+          fontWeight: 400,
+          color: "rgba(26,24,23,0.75)",
+          lineHeight: 1.8,
+          margin: "0 0 1.4em",
+        }}>
+          Die meisten Nachfolgeprozesse scheitern nicht an fehlendem Willen — sondern daran, dass zu spät mit der Vorbereitung begonnen wurde. Wer die richtigen Fragen früh stellt, gewinnt Handlungsspielraum.
+        </p>
+        <p style={{
+          fontFamily: serif,
+          fontSize: "clamp(15px, 1.25vw, 18px)",
+          fontWeight: 400,
+          color: "rgba(26,24,23,0.75)",
+          lineHeight: 1.8,
+          margin: "0 0 1.4em",
+        }}>
+          Unsere Checkliste strukturiert die drei kritischsten Bereiche einer Nachfolge: die Definition der Rolle, das Anforderungsprofil an den Kandidaten und die Planung des Übergabeprozesses. Sie ist kein Formular — sie ist ein Denkwerkzeug.
+        </p>
+        <p style={{
+          fontFamily: serif,
+          fontSize: "clamp(15px, 1.25vw, 18px)",
+          fontWeight: 400,
+          color: "rgba(26,24,23,0.75)",
+          lineHeight: 1.8,
+          margin: "0 0 clamp(32px, 4vw, 48px)",
+        }}>
+          Kostenlos, sofort anwendbar — und erfahrungsgemäß der erste ehrliche Blick auf das, was in einem Unternehmen noch nicht geklärt ist.
+        </p>
+
+        <Link
+          to="/lead-magnet"
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          style={{
+            fontFamily: serif,
+            fontSize: "clamp(13px, 1vw, 15px)",
+            fontWeight: 500,
+            color: "#fff",
+            background: hover ? "#005530" : "#00693C",
+            textDecoration: "none",
+            display: "inline-block",
+            padding: "clamp(14px, 1.5vw, 18px) clamp(28px, 3vw, 44px)",
+            borderRadius: 4,
+            transition: "background 0.2s ease",
+          }}
+        >
+          Checkliste herunterladen
+        </Link>
       </div>
     </section>
   );

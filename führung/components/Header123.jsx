@@ -1,46 +1,93 @@
-"use client";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Button } from "@relume_io/relume-ui";
-import React from "react";
+const sans = "'EB Garamond', Georgia, serif";
+
+function PillLink({ to, label, hover, onEnter, onLeave }) {
+  return (
+    <Link
+      to={to}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      style={{
+        fontFamily: sans,
+        fontSize: "clamp(13px, 1vw, 15px)",
+        fontWeight: 500,
+        letterSpacing: "0.04em",
+        textDecoration: "none",
+        color: hover ? "#00693C" : "#fff",
+        background: hover ? "#fff" : "transparent",
+        padding: "clamp(16px, 1.6vw, 22px) clamp(28px, 3vw, 48px)",
+        borderRadius: 100,
+        display: "inline-block",
+        transition: "background 0.2s ease, color 0.2s ease",
+        whiteSpace: "nowrap",
+      }}
+    >
+      {label}
+    </Link>
+  );
+}
 
 export function Header123() {
+  const [hover1, setHover1] = useState(false);
+  const [hover2, setHover2] = useState(false);
+
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
-        <div className="ml-[5%]">
-          <div className="mb-12 w-full max-w-lg md:mb-18 lg:mb-20">
-            <h2 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
-              Die richtige Führung trägt den Erfolg
-            </h2>
-            <p className="md:text-md">
-              Wir platzieren Führungskräfte, die Familienunternehmen verstehen
-              und gestalten
-            </p>
-            <div className="mt-6 flex gap-x-4 md:mt-8">
-              <Button title="Gespräch">Gespräch</Button>
-              <Button title="Kandidaten" variant="secondary">
-                Kandidaten
-              </Button>
-            </div>
-          </div>
-        </div>
-        <div className="grid auto-cols-fr grid-cols-2 items-start gap-6 sm:gap-8 md:gap-16">
-          <div className="w-full">
-            <img
-              className="aspect-square size-full object-cover"
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-              alt="Relume placeholder image 1"
-            />
-          </div>
-          <div className="my-[15%] w-full">
-            <img
-              className="aspect-square size-full object-cover"
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-              alt="Relume placeholder image 2"
-            />
-          </div>
-        </div>
+    <section style={{
+      background: "#f7f4ef",
+      padding: "clamp(140px, 18vw, 220px) clamp(40px, 7%, 120px) clamp(120px, 16vw, 180px)",
+      textAlign: "center",
+    }}>
+
+      <h1 style={{
+        fontFamily: sans,
+        fontWeight: 700,
+        fontSize: "clamp(64px, 10vw, 148px)",
+        lineHeight: 1,
+        letterSpacing: "0.01em",
+        color: "#00693C",
+        margin: "0 auto clamp(48px, 6vw, 80px)",
+      }}>
+        Führung.
+      </h1>
+
+      <p style={{
+        fontFamily: sans,
+        fontSize: "clamp(20px, 2.2vw, 30px)",
+        fontWeight: 400,
+        color: "#1a1817",
+        lineHeight: 1.6,
+        maxWidth: 860,
+        margin: "0 auto clamp(60px, 8vw, 100px)",
+      }}>
+        Die Besetzung von Schlüsselpositionen entscheidet über die Richtung eines Familienunternehmens. Bausch & Company findet Führungskräfte, die nicht nur fachlich überzeugen — sondern zur Eigentümerlogik, zur Kultur und zur konkreten Situation des Unternehmens passen.
+      </p>
+
+      <div style={{
+        display: "inline-flex",
+        alignItems: "center",
+        background: "#00693C",
+        borderRadius: 100,
+        padding: 7,
+        gap: 4,
+      }}>
+        <PillLink
+          to="/kontakt"
+          label="Gespräch vereinbaren"
+          hover={hover1}
+          onEnter={() => setHover1(true)}
+          onLeave={() => setHover1(false)}
+        />
+        <PillLink
+          to="/nachfolge"
+          label="Zur Nachfolge"
+          hover={hover2}
+          onEnter={() => setHover2(true)}
+          onLeave={() => setHover2(false)}
+        />
       </div>
+
     </section>
   );
 }

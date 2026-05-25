@@ -1,114 +1,151 @@
-"use client";
-
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
-import { RxChevronRight } from "react-icons/rx";
+import { Link } from "react-router-dom";
+
+const serif = "'EB Garamond', Georgia, serif";
+
+const cases = [
+  {
+    number: "01",
+    tag: "Maschinenbau · Süddeutschland",
+    title: "Übergabe nach 30 Jahren Gründerführung",
+    body: "Ein Gründer suchte nach drei Jahrzehnten einen externen Nachfolger für die Geschäftsführung — bei laufendem Betrieb, ohne dass die Suche nach außen dringen durfte. Die entscheidende Frage war nicht, ob ein externer Kandidat infrage kommt, sondern welche Art von Führung das Unternehmen in dieser spezifischen Übergangsphase wirklich braucht. Wir identifizierten drei geeignete Kandidaten innerhalb von sieben Wochen. Die Übergabe wurde in enger Abstimmung mit dem Beirat begleitet — bis weit über den ersten Arbeitstag hinaus.",
+    duration: "7 Wochen",
+  },
+  {
+    number: "02",
+    tag: "Logistik · Mittelstand",
+    title: "Externe CFO-Besetzung zur Generationenübergabe",
+    body: "Parallel zur Übergabe der Geschäftsführung an die nächste Generation fehlte eine erfahrene Finanzführung, die beide Seiten verstand: die gewachsenen Strukturen des Hauses und die Anforderungen, die ein Wachstumskurs stellt. Wir besetzten die CFO-Rolle diskret, mit einem Kandidaten, der bereits in vergleichbaren Übergangssituationen gearbeitet hatte. Die ersten sechs Monate wurden aktiv begleitet.",
+    duration: "9 Wochen",
+  },
+  {
+    number: "03",
+    tag: "Handel · Familiengeführt",
+    title: "Vertriebsleiter für erstmaligen internationalen Markteintritt",
+    body: "Ein traditionsreicher Handelsbetrieb wollte erstmals international expandieren — eine Situation, in der die bisherige Unternehmenskultur auf neue Anforderungen trifft. Der gesuchte Kandidat musste nicht nur vertrieblich stark sein, sondern auch in der Lage, intern Vertrauen aufzubauen und kulturell zu vermitteln. Die Besetzung erfolgte in acht Wochen, die Einarbeitungsphase wurde durch uns begleitet.",
+    duration: "8 Wochen",
+  },
+];
 
 export function Layout373_1() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
-        <div className="rb-12 mb-12 md:mb-18 lg:mb-20">
-          <div className="mx-auto max-w-lg text-center">
-            <p className="mb-3 font-semibold md:mb-4">Aus der Praxis</p>
-            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              Was wir gelöst haben
-            </h2>
-            <p className="md:text-md">Drei Beispiele aus unserer Arbeit</p>
+    <section style={{
+      padding: "clamp(40px, 5vw, 64px) clamp(40px, 7%, 120px) clamp(64px, 9vw, 100px)",
+      background: "#fff",
+    }}>
+
+      {cases.map((c, i) => (
+        <div
+          key={c.number}
+          style={{
+            borderTop: "1px solid rgba(26,24,23,0.1)",
+            borderBottom: i === cases.length - 1 ? "1px solid rgba(26,24,23,0.1)" : "none",
+            padding: "clamp(40px, 5vw, 64px) 0",
+            display: "grid",
+            gridTemplateColumns: "clamp(40px, 5vw, 64px) 1fr clamp(140px, 14vw, 200px)",
+            gap: "clamp(24px, 4vw, 56px)",
+            alignItems: "start",
+          }}
+        >
+          {/* Number */}
+          <p style={{
+            fontFamily: serif,
+            fontWeight: 300,
+            fontSize: "clamp(28px, 3.5vw, 52px)",
+            lineHeight: 1,
+            color: "#00693C",
+            margin: 0,
+            paddingTop: "0.1em",
+          }}>
+            {c.number}.
+          </p>
+
+          {/* Main content */}
+          <div>
+            <p style={{
+              fontFamily: serif,
+              fontSize: "clamp(10px, 0.85vw, 12px)",
+              fontWeight: 700,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "rgba(26,24,23,0.4)",
+              margin: "0 0 12px",
+            }}>
+              {c.tag}
+            </p>
+
+            <h3 style={{
+              fontFamily: serif,
+              fontWeight: 700,
+              fontSize: "clamp(22px, 2.2vw, 32px)",
+              lineHeight: 1.1,
+              letterSpacing: "0.01em",
+              color: "#1a1817",
+              margin: "0 0 clamp(16px, 2vw, 24px)",
+              maxWidth: 560,
+            }}>
+              {c.title}
+            </h3>
+
+            <p style={{
+              fontFamily: serif,
+              fontSize: "clamp(15px, 1.25vw, 18px)",
+              fontWeight: 400,
+              color: "rgba(26,24,23,0.72)",
+              lineHeight: 1.8,
+              margin: "0 0 clamp(24px, 3vw, 36px)",
+              maxWidth: 640,
+            }}>
+              {c.body}
+            </p>
+
+            <Link
+              to="/kontakt"
+              style={{
+                fontFamily: serif,
+                fontSize: "clamp(13px, 1vw, 15px)",
+                fontWeight: 500,
+                color: "#1a1817",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 12,
+              }}
+            >
+              Gespräch anfragen
+              <svg width="32" height="16" viewBox="0 0 32 16" fill="none">
+                <line x1="0" y1="8" x2="24" y2="8" stroke="#1a1817" strokeWidth="1.3" />
+                <polyline points="17,2 24,8 17,14" fill="none" stroke="#1a1817" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+          </div>
+
+          {/* Duration stat */}
+          <div style={{ textAlign: "right", paddingTop: "0.2em" }}>
+            <p style={{
+              fontFamily: serif,
+              fontWeight: 300,
+              fontSize: "clamp(28px, 3vw, 44px)",
+              lineHeight: 1,
+              color: "#1a1817",
+              margin: "0 0 6px",
+            }}>
+              {c.duration}
+            </p>
+            <p style={{
+              fontFamily: serif,
+              fontSize: "clamp(10px, 0.85vw, 12px)",
+              fontWeight: 400,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "rgba(26,24,23,0.35)",
+              margin: 0,
+            }}>
+              Suchdauer
+            </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:gap-8">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
-            <div className="grid grid-cols-1 border border-border-primary sm:col-span-2 sm:row-span-1">
-              <div className="flex flex-1 flex-col justify-center p-6 md:p-8 lg:p-12">
-                <div>
-                  <div className="mb-5 md:mb-6">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                      className="size-12"
-                      alt="Relume logo 3"
-                    />
-                  </div>
-                  <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-                    Maschinenbau Süddeutschland
-                  </h3>
-                  <p>
-                    Gründer suchte Nachfolger für Geschäftsführung nach 30
-                    Jahren
-                  </p>
-                </div>
-                <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                  <Button title="→" variant="secondary">
-                    →
-                  </Button>
-                  <Button
-                    title="Familiengeführter Handelsbetrieb"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Familiengeführter Handelsbetrieb
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col border border-border-primary">
-              <div className="flex h-full flex-col justify-between p-6 md:p-8 lg:p-6">
-                <div>
-                  <div className="mb-3 md:mb-4">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                      alt="Relume logo 1"
-                      className="size-12"
-                    />
-                  </div>
-                  <h3 className="mb-2 text-xl font-bold md:text-2xl">
-                    Übergabe an nächste Generation mit externer CFO-Besetzung
-                  </h3>
-                  <p>→</p>
-                </div>
-                <div className="mt-5 flex items-center gap-4 md:mt-6">
-                  <Button
-                    title="Mittelständisches Logistikunternehmen"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Mittelständisches Logistikunternehmen
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col border border-border-primary">
-              <div className="flex h-full flex-col justify-between p-6 md:p-8 lg:p-6">
-                <div>
-                  <div className="mb-3 md:mb-4">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                      alt="Relume logo 2"
-                      className="size-12"
-                    />
-                  </div>
-                  <h3 className="mb-2 text-xl font-bold md:text-2xl">
-                    Übergabe an nächste Generation mit externer CFO-Besetzung
-                  </h3>
-                  <p>→</p>
-                </div>
-                <div className="mt-5 flex items-center gap-4 md:mt-6">
-                  <Button
-                    title="Mittelständisches Logistikunternehmen"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Mittelständisches Logistikunternehmen
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      ))}
     </section>
   );
 }

@@ -1,158 +1,182 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const sans = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const serif = "'EB Garamond', Georgia, serif";
 
 const challenges = [
   {
     number: "01",
     title: "Die richtige Person finden",
     body: "Ob interner Kandidat oder externe Führungskraft — die Entscheidung hängt nicht an Präferenzen, sondern an der konkreten Situation des Unternehmens. Wir helfen, diese Frage ehrlich zu beantworten, bevor die Suche beginnt.",
-    large: true,
   },
   {
     number: "02",
     title: "Übergabe ohne Bruch",
-    body: "Kontinuität zu wahren, während Neues entsteht, ist eine der anspruchsvollsten Aufgaben. Wir begleiten die Übergabe auch nach der Entscheidung.",
-    large: false,
+    body: "Kontinuität zu wahren, während Neues entsteht, ist eine der anspruchsvollsten Aufgaben in der Unternehmensführung. Wir begleiten die Übergabe auch nach der Entscheidung.",
   },
   {
     number: "03",
     title: "Timing der Entscheidung",
     body: "Zu früh entschieden, zu spät begonnen — beides hat Konsequenzen. Wir helfen, den richtigen Moment zu erkennen und den Prozess rechtzeitig anzustoßen.",
-    large: false,
   },
 ];
 
-function ArrowLink({ to, label }) {
-  const [hover, setHover] = React.useState(false);
+function Card({ number, title, body }) {
   return (
-    <Link
-      to={to}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 10,
-        fontFamily: sans,
-        fontSize: 11,
+    <div>
+      <p style={{
+        fontFamily: serif,
+        fontWeight: 300,
+        fontSize: "clamp(44px, 5.5vw, 80px)",
+        lineHeight: 1,
+        letterSpacing: "-0.02em",
+        color: "#00693C",
+        margin: "0 0 16px",
+      }}>
+        {number}.
+      </p>
+      <h3 style={{
+        fontFamily: serif,
         fontWeight: 700,
-        letterSpacing: "0.12em",
-        textTransform: "uppercase",
-        color: hover ? "#00693C" : "#1a1817",
-        textDecoration: "none",
-        transition: "color 0.2s ease",
-      }}
-    >
-      {label}
-      <svg width="32" height="20" viewBox="0 0 32 20" fill="none">
-        <line x1="0" y1="10" x2="24" y2="10" stroke="currentColor" strokeWidth="1.4" />
-        <polyline points="17,3 24,10 17,17" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </Link>
+        fontSize: "clamp(20px, 2vw, 28px)",
+        lineHeight: 1.15,
+        color: "#1a1817",
+        margin: "0 0 14px",
+      }}>
+        {title}
+      </h3>
+      <p style={{
+        fontFamily: serif,
+        fontSize: "clamp(14px, 1.1vw, 16px)",
+        fontWeight: 400,
+        color: "rgba(26,24,23,0.58)",
+        lineHeight: 1.75,
+        margin: 0,
+      }}>
+        {body}
+      </p>
+    </div>
   );
 }
 
 export function Layout373() {
   return (
     <section style={{
-      padding: "clamp(72px, 10vw, 120px) clamp(40px, 7%, 120px)",
+      padding: "clamp(8px, 1vw, 16px) clamp(40px, 7%, 120px) clamp(64px, 9vw, 100px)",
       background: "#fff",
+      position: "relative",
     }}>
-      {/* Header */}
-      <div style={{ marginBottom: "clamp(48px, 6vw, 72px)" }}>
+
+      {/* Zitat – oben rechts */}
+      <div style={{
+        position: "absolute",
+        top: "clamp(8px, 1vw, 16px)",
+        right: "8%",
+        maxWidth: "clamp(200px, 24vw, 320px)",
+        textAlign: "right",
+      }}>
         <p style={{
-          fontFamily: sans,
-          fontSize: 11,
-          fontWeight: 700,
-          letterSpacing: "0.14em",
-          textTransform: "uppercase",
-          color: "#00693C",
-          margin: "0 0 16px",
+          fontFamily: serif,
+          fontStyle: "italic",
+          fontWeight: 400,
+          fontSize: "clamp(12px, 1vw, 14px)",
+          lineHeight: 1.7,
+          color: "rgba(26,24,23,0.4)",
+          margin: "0 0 8px",
         }}>
-          Herausforderungen
+          „Wenn du die richtige Person auf dem richtigen Platz hast, ist die Führung fast schon ein Selbstläufer."
         </p>
-        <h2 style={{
-          fontFamily: sans,
-          fontWeight: 900,
-          fontSize: "clamp(32px, 4.5vw, 60px)",
-          lineHeight: 1.0,
-          letterSpacing: "-0.03em",
-          color: "#1a1817",
-          margin: 0,
-          maxWidth: 640,
+        <span style={{
+          fontFamily: serif,
+          fontStyle: "normal",
+          fontWeight: 600,
+          fontSize: "clamp(10px, 0.8vw, 11px)",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "rgba(26,24,23,0.28)",
         }}>
-          Was Eigentümer wirklich bewegt.
-        </h2>
+          — Jim Collins
+        </span>
       </div>
 
-      {/* Card grid */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "2fr 1fr 1fr",
-        gap: "clamp(16px, 2vw, 24px)",
-        alignItems: "start",
-      }}>
-        {challenges.map(({ number, title, body, large }) => (
-          <div
-            key={number}
-            style={{
-              border: "1px solid rgba(26,24,23,0.1)",
-              borderRadius: 4,
-              padding: large
-                ? "clamp(36px, 4vw, 56px)"
-                : "clamp(28px, 3vw, 40px)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              minHeight: large ? 320 : 280,
-            }}
-          >
-            <div>
-              <p style={{
-                fontFamily: sans,
-                fontWeight: 300,
-                fontSize: large ? "clamp(44px, 5vw, 68px)" : "clamp(36px, 4vw, 52px)",
-                lineHeight: 1,
-                letterSpacing: "-0.03em",
-                color: "#00693C",
-                margin: "0 0 clamp(20px, 2.5vw, 32px)",
-              }}>
-                {number}.
-              </p>
+      {/* Journey path visualization
+          Layout (in % of 900 × 1100 viewBox):
+            Card 01  top:0      left:0     width:29%   → x 0–261,  y 0–310
+            Card 02  top:35%    right:0    width:29%   → x 639–900 y 385–695
+            Card 03  bottom:0   left:35%   width:29%   → x 315–576 y 790–1100
+      */}
+      <div style={{ position: "relative", minHeight: 1100 }}>
 
-              <h3 style={{
-                fontFamily: sans,
-                fontWeight: 900,
-                fontSize: large
-                  ? "clamp(24px, 2.8vw, 40px)"
-                  : "clamp(18px, 1.8vw, 26px)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.025em",
-                color: "#1a1817",
-                margin: "0 0 clamp(12px, 1.5vw, 20px)",
-              }}>
-                {title}
-              </h3>
+        <svg
+          viewBox="0 0 900 1100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        >
+          {/* Path 01 → 02: departs right edge of card 01, arrives left of card 02 with gap */}
+          <path
+            d="M 261 155 C 450 155, 560 415, 615 415"
+            fill="none"
+            stroke="rgba(0,105,60,0.18)"
+            strokeWidth="1.5"
+          />
 
-              <p style={{
-                fontFamily: sans,
-                fontSize: "clamp(13px, 1vw, 15px)",
-                fontWeight: 400,
-                color: "rgba(26,24,23,0.6)",
-                lineHeight: 1.75,
-                margin: 0,
-              }}>
-                {body}
-              </p>
-            </div>
+          {/* Path 02 → 03: departs bottom of card 02, arrives above card 03 with gap */}
+          <path
+            d="M 770 695 C 770 790, 590 758, 490 758"
+            fill="none"
+            stroke="rgba(0,105,60,0.18)"
+            strokeWidth="1.5"
+          />
 
-            <div style={{ marginTop: "clamp(24px, 3vw, 40px)" }}>
-              <ArrowLink to="/kontakt" label="Mehr erfahren" />
-            </div>
-          </div>
-        ))}
+          {/* Station dot 01 — departure point from card 01 */}
+          <circle cx="261" cy="155" r="4" fill="#00693C" opacity="0.3" />
+
+          {/* Station dot 02 — arrival point at card 02 (gap before left edge 639) */}
+          <circle cx="615" cy="415" r="4" fill="#00693C" opacity="0.3" />
+
+          {/* Station dot 03 — arrival point above card 03 (gap before top edge ~790) */}
+          <circle cx="490" cy="758" r="4" fill="#00693C" opacity="0.3" />
+        </svg>
+
+        {/* Card 01 — top left */}
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "29%",
+          zIndex: 1,
+        }}>
+          <Card {...challenges[0]} />
+        </div>
+
+        {/* Card 02 — middle right */}
+        <div style={{
+          position: "absolute",
+          top: "35%",
+          right: 0,
+          width: "29%",
+          zIndex: 1,
+        }}>
+          <Card {...challenges[1]} />
+        </div>
+
+        {/* Card 03 — bottom center */}
+        <div style={{
+          position: "absolute",
+          bottom: 0,
+          left: "40%",
+          width: "29%",
+          zIndex: 1,
+        }}>
+          <Card {...challenges[2]} />
+        </div>
       </div>
     </section>
   );
