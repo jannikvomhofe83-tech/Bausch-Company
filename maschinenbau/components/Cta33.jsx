@@ -67,6 +67,36 @@ export function Cta33() {
             background: "#1a1817",
           }} />
 
+          {/* Attribution */}
+          <div style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            margin: "clamp(16px, 2.5vh, 28px) 0 clamp(8px, 1.5vh, 16px)",
+          }}>
+            <p style={{
+              fontFamily: serif,
+              fontWeight: 400,
+              fontStyle: "italic",
+              fontSize: "clamp(14px, 1.1vw, 18px)",
+              color: "#1a1817",
+              margin: "0 0 0.2em",
+            }}>
+              Johannes Bausch
+            </p>
+            <p style={{
+              fontFamily: serif,
+              fontSize: "clamp(9px, 0.7vw, 11px)",
+              fontWeight: 700,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "rgba(26,24,23,0.45)",
+              margin: 0,
+            }}>
+              CEO · Bausch & Company
+            </p>
+          </div>
+
           {/* Vertical line — centered on horizontal line */}
           <div style={{
             width: 1,
