@@ -1,120 +1,183 @@
-"use client";
-
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
-import { RxChevronRight } from "react-icons/rx";
+
+const serif = "'EB Garamond', Georgia, serif";
 
 export function Layout373() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
-        <div className="rb-12 mb-12 md:mb-18 lg:mb-20">
-          <div className="mx-auto max-w-lg text-center">
-            <p className="mb-3 font-semibold md:mb-4">Herausforderungen</p>
-            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              Was Maschinenbauer bewegt
-            </h2>
-            <p className="md:text-md">Der Wandel kommt schnell</p>
-          </div>
+    <section style={{
+      background: "#fff",
+      display: "flex",
+      overflow: "hidden",
+    }}>
+
+      {/* Left spacer — pushes everything to the right */}
+      <div style={{ flex: 1 }} />
+
+      {/* Text content — same padding as Layout396's text column */}
+      <div style={{
+        flexShrink: 0,
+        padding: "clamp(32px, 4vw, 60px) clamp(32px, 4vw, 64px)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        gap: "clamp(28px, 4vh, 48px)",
+      }}>
+
+        <p style={{
+          fontFamily: serif,
+          fontSize: "clamp(9px, 0.75vw, 11px)",
+          fontWeight: 700,
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: "#1a1817",
+          margin: 0,
+        }}>
+          Herausforderungen · Was Maschinenbauer bewegt
+        </p>
+
+        <div>
+          <h3 style={{
+            fontFamily: serif,
+            fontWeight: 700,
+            fontStyle: "italic",
+            fontSize: "clamp(16px, 1.4vw, 22px)",
+            color: "#1a1817",
+            margin: "0 0 0.4em",
+            letterSpacing: "-0.01em",
+          }}>
+            Technologiewandel und Fachkräftemangel
+          </h3>
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(13px, 1vw, 17px)",
+            fontWeight: 400,
+            lineHeight: 1.8,
+            color: "#1a1817",
+            margin: 0,
+            maxWidth: "55ch",
+          }}>
+            Digitalisierung und Automatisierung verändern die Anforderungen
+            an Führung grundlegend. Wer heute sucht, braucht Kandidaten,
+            die beides verstehen — die Technologie und die Menschen dahinter.
+          </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:gap-8">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
-            <div className="grid grid-cols-1 border border-border-primary sm:col-span-2 sm:row-span-1">
-              <div className="flex flex-1 flex-col justify-center p-6 md:p-8 lg:p-12">
-                <div>
-                  <div className="mb-5 md:mb-6">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                      className="size-12"
-                      alt="Relume logo 3"
-                    />
-                  </div>
-                  <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-                    Technologiewandel und Fachkräftemangel
-                  </h3>
-                  <p>
-                    Digitalisierung und Automatisierung verändern die
-                    Anforderungen an Führung.
-                  </p>
-                </div>
-                <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                  <Button title="Mehr" variant="secondary">
-                    Mehr
-                  </Button>
-                  <Button
-                    title="Pfeil"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Pfeil
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col border border-border-primary">
-              <div className="flex h-full flex-col justify-between p-6 md:p-8 lg:p-6">
-                <div>
-                  <div className="mb-3 md:mb-4">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                      alt="Relume logo 1"
-                      className="size-12"
-                    />
-                  </div>
-                  <h3 className="mb-2 text-xl font-bold md:text-2xl">
-                    Globale Märkte verlangen neue Kompetenzen
-                  </h3>
-                  <p>
-                    Internationale Expansion braucht andere Führungsprofile als
-                    Heimatmarkt.
-                  </p>
-                </div>
-                <div className="mt-5 flex items-center gap-4 md:mt-6">
-                  <Button
-                    title="Pfeil"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Pfeil
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col border border-border-primary">
-              <div className="flex h-full flex-col justify-between p-6 md:p-8 lg:p-6">
-                <div>
-                  <div className="mb-3 md:mb-4">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                      alt="Relume logo 2"
-                      className="size-12"
-                    />
-                  </div>
-                  <h3 className="mb-2 text-xl font-bold md:text-2xl">
-                    Globale Märkte verlangen neue Kompetenzen
-                  </h3>
-                  <p>
-                    Internationale Expansion braucht andere Führungsprofile als
-                    Heimatmarkt.
-                  </p>
-                </div>
-                <div className="mt-5 flex items-center gap-4 md:mt-6">
-                  <Button
-                    title="Pfeil"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Pfeil
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+
+        <div>
+          <h3 style={{
+            fontFamily: serif,
+            fontWeight: 700,
+            fontStyle: "italic",
+            fontSize: "clamp(16px, 1.4vw, 22px)",
+            color: "#1a1817",
+            margin: "0 0 0.4em",
+            letterSpacing: "-0.01em",
+          }}>
+            Globale Märkte verlangen neue Kompetenzen
+          </h3>
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(13px, 1vw, 17px)",
+            fontWeight: 400,
+            lineHeight: 1.8,
+            color: "#1a1817",
+            margin: 0,
+            maxWidth: "55ch",
+          }}>
+            Internationale Expansion braucht andere Führungsprofile als der
+            Heimatmarkt. Sprachkompetenz allein reicht nicht — gefragt ist
+            kulturelles Verständnis und globale Erfahrung.
+          </p>
         </div>
+
+        <div>
+          <h3 style={{
+            fontFamily: serif,
+            fontWeight: 700,
+            fontStyle: "italic",
+            fontSize: "clamp(16px, 1.4vw, 22px)",
+            color: "#1a1817",
+            margin: "0 0 0.4em",
+            letterSpacing: "-0.01em",
+          }}>
+            Generationswechsel und Nachfolge
+          </h3>
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(13px, 1vw, 17px)",
+            fontWeight: 400,
+            lineHeight: 1.8,
+            color: "#1a1817",
+            margin: 0,
+            maxWidth: "55ch",
+          }}>
+            Viele Maschinenbauunternehmen stehen vor dem Führungswechsel.
+            Die Nachfolge entscheidet über Kontinuität oder Bruch —
+            und braucht mehr als einen guten Lebenslauf.
+          </p>
+        </div>
+
+        <div style={{
+          borderTop: "1px solid #1a1817",
+          paddingTop: "clamp(20px, 3vh, 36px)",
+          marginTop: "clamp(4px, 1vh, 12px)",
+        }}>
+          <p style={{
+            fontFamily: serif,
+            fontWeight: 400,
+            fontStyle: "italic",
+            fontSize: "clamp(15px, 1.2vw, 20px)",
+            lineHeight: 1.6,
+            color: "#1a1817",
+            margin: "0 0 0.5em",
+          }}>
+            „Change before you have to."
+          </p>
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(9px, 0.75vw, 11px)",
+            fontWeight: 700,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            color: "#1a1817",
+            margin: 0,
+          }}>
+            Jack Welch
+          </p>
+        </div>
+
       </div>
+
+      {/* Divider — same as Layout396 */}
+      <div style={{
+        width: 1,
+        background: "#1a1817",
+        flexShrink: 0,
+        margin: "clamp(40px, 6vw, 80px) 0",
+      }} />
+
+      {/* Right: vertical "Wandel" — same padding as "Rollen" in Layout396 */}
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "clamp(40px, 5vw, 80px) clamp(80px, 10vw, 160px)",
+        flexShrink: 0,
+      }}>
+        <span style={{
+          fontFamily: serif,
+          fontWeight: 700,
+          fontSize: "clamp(60px, 9vw, 150px)",
+          color: "#1a1817",
+          writingMode: "vertical-rl",
+          letterSpacing: "-0.02em",
+          lineHeight: 1,
+          userSelect: "none",
+          whiteSpace: "nowrap",
+        }}>
+          Wandel
+        </span>
+      </div>
+
     </section>
   );
 }

@@ -1,181 +1,115 @@
-"use client";
-
-import {
-  Button,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@relume_io/relume-ui";
 import React from "react";
-import { RxChevronRight } from "react-icons/rx";
+
+const serif = "'EB Garamond', Georgia, serif";
 
 export function Layout504() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
-        <div className="mb-12 md:mb-18 lg:mb-20">
-          <div className="mx-auto max-w-lg text-center">
-            <p className="mb-3 font-semibold md:mb-4">Unser Ansatz</p>
-            <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              Wie wir arbeiten
-            </h1>
-            <p className="md:text-md">
-              Wir verstehen Maschinenbau nicht als Branche, sondern als Kultur.
-              Unsere Kandidaten haben in dieser Welt gelebt und gearbeitet.
-            </p>
-            <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
-              <Button title="Mehr" variant="secondary">
-                Mehr
-              </Button>
-              <Button
-                title="Pfeil"
-                variant="link"
-                size="link"
-                iconRight={<RxChevronRight />}
-              >
-                Pfeil
-              </Button>
-            </div>
-          </div>
-        </div>
-        <Tabs defaultValue="tab-one" className="flex flex-col items-center">
-          <TabsList className="no-scrollbar relative mb-12 flex w-screen flex-nowrap items-center gap-x-6 overflow-auto px-[5vw] md:mb-16 md:w-auto md:max-w-full md:px-0">
-            <TabsTrigger
-              value="tab-one"
-              className="border-0 border-b-[1.5px] border-transparent px-0 py-2 duration-0 data-[state=active]:border-border-primary data-[state=active]:bg-transparent data-[state=active]:text-text-primary"
-            >
-              Maßgeschneidert
-            </TabsTrigger>
-            <TabsTrigger
-              value="tab-two"
-              className="border-0 border-b-[1.5px] border-transparent px-0 py-2 duration-0 data-[state=active]:border-border-primary data-[state=active]:bg-transparent data-[state=active]:text-text-primary"
-            >
-              Langfristig
-            </TabsTrigger>
-            <TabsTrigger
-              value="tab-three"
-              className="border-0 border-b-[1.5px] border-transparent px-0 py-2 duration-0 data-[state=active]:border-border-primary data-[state=active]:bg-transparent data-[state=active]:text-text-primary"
-            >
-              Strukturiert
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent
-            value="tab-one"
-            className="data-[state=active]:animate-tabs"
-          >
-            <div className="grid grid-cols-1 border border-border-primary md:grid-cols-2 md:items-center">
-              <div className="aspect-square">
-                <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                  className="w-full object-cover"
-                  alt="Relume placeholder image 1"
-                />
-              </div>
-              <div className="p-6 md:p-8 lg:p-12">
-                <p className="mb-3 font-semibold md:mb-4">Maßgeschneidert</p>
-                <h2 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-                  Keine Standardlösungen für Maschinenbau
-                </h2>
-                <p>
-                  Jedes Unternehmen hat andere Anforderungen. Wir definieren die
-                  Rolle präzise, bevor wir suchen. Das spart Zeit und vermeidet
-                  Fehlentscheidungen.
-                </p>
-                <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                  <Button title="Mehr" variant="secondary">
-                    Mehr
-                  </Button>
-                  <Button
-                    title="Pfeil"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Pfeil
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </TabsContent>
-          <TabsContent
-            value="tab-two"
-            className="data-[state=active]:animate-tabs"
-          >
-            <div className="grid grid-cols-1 border border-border-primary md:grid-cols-2 md:items-center">
-              <div className="aspect-square">
-                <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                  className="w-full object-cover"
-                  alt="Relume placeholder image 2"
-                />
-              </div>
-              <div className="p-6 md:p-8 lg:p-12">
-                <p className="mb-3 font-semibold md:mb-4">Maßgeschneidert</p>
-                <h2 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-                  Keine Standardlösungen für Maschinenbau
-                </h2>
-                <p>
-                  Jedes Unternehmen hat andere Anforderungen. Wir definieren die
-                  Rolle präzise, bevor wir suchen. Das spart Zeit und vermeidet
-                  Fehlentscheidungen.
-                </p>
-                <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                  <Button title="Mehr" variant="secondary">
-                    Mehr
-                  </Button>
-                  <Button
-                    title="Pfeil"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Pfeil
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </TabsContent>
-          <TabsContent
-            value="tab-three"
-            className="data-[state=active]:animate-tabs"
-          >
-            <div className="grid grid-cols-1 border border-border-primary md:grid-cols-2 md:items-center">
-              <div className="aspect-square">
-                <img
-                  src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
-                  className="w-full object-cover"
-                  alt="Relume placeholder image 3"
-                />
-              </div>
-              <div className="p-6 md:p-8 lg:p-12">
-                <p className="mb-3 font-semibold md:mb-4">Maßgeschneidert</p>
-                <h2 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-                  Keine Standardlösungen für Maschinenbau
-                </h2>
-                <p>
-                  Jedes Unternehmen hat andere Anforderungen. Wir definieren die
-                  Rolle präzise, bevor wir suchen. Das spart Zeit und vermeidet
-                  Fehlentscheidungen.
-                </p>
-                <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-                  <Button title="Mehr" variant="secondary">
-                    Mehr
-                  </Button>
-                  <Button
-                    title="Pfeil"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Pfeil
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </TabsContent>
-        </Tabs>
+    <section style={{
+      background: "#fff",
+      overflow: "hidden",
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
+      minHeight: "70vh",
+    }}>
+
+      {/* Left half — text */}
+      <div style={{
+        padding: "clamp(48px, 8vw, 120px) clamp(32px, 5vw, 80px) clamp(48px, 8vw, 120px) clamp(32px, 7vw, 100px)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}>
+        <h2 style={{
+          fontFamily: serif,
+          fontWeight: 700,
+          fontStyle: "italic",
+          fontSize: "clamp(26px, 2.8vw, 44px)",
+          lineHeight: 1.2,
+          color: "#1a1817",
+          margin: "0 0 clamp(24px, 4vh, 48px)",
+          letterSpacing: "-0.01em",
+        }}>
+          Wie wir arbeiten
+        </h2>
+        <p style={{
+          fontFamily: serif,
+          fontSize: "clamp(14px, 1.1vw, 18px)",
+          fontWeight: 400,
+          lineHeight: 1.85,
+          color: "#1a1817",
+          margin: "0 0 1.5em",
+        }}>
+          Wir verstehen Maschinenbau nicht als Branche, sondern als Kultur.
+          Unsere Kandidaten haben in dieser Welt gelebt und gearbeitet — als
+          Ingenieure, als Werksleiter, als operative Führungskräfte. Das macht
+          den Unterschied, wenn es darum geht, die richtige Person für eine
+          spezifische Situation zu finden.
+        </p>
+        <p style={{
+          fontFamily: serif,
+          fontSize: "clamp(14px, 1.1vw, 18px)",
+          fontWeight: 400,
+          lineHeight: 1.85,
+          color: "#1a1817",
+          margin: "0 0 1.5em",
+        }}>
+          Unsere Arbeit beginnt nicht mit dem Lebenslauf, sondern mit dem
+          Verständnis der Situation. Was hat das Unternehmen hinter sich?
+          Was kommt auf es zu? Welche Führungskultur passt — und welche
+          würde scheitern? Erst wenn wir das verstehen, beginnen wir zu suchen.
+        </p>
+        <p style={{
+          fontFamily: serif,
+          fontSize: "clamp(14px, 1.1vw, 18px)",
+          fontWeight: 400,
+          lineHeight: 1.85,
+          color: "#1a1817",
+          margin: 0,
+        }}>
+          Das Ergebnis: Führungskräfte, die nicht nur fachlich passen, sondern
+          die das Unternehmen in seiner nächsten Phase tragen können.
+        </p>
       </div>
+
+      {/* Right half — giant "Ansatz" */}
+      <div style={{
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+      }}>
+        <div style={{ position: "relative", marginLeft: "-0.2em" }}>
+          <span style={{
+            position: "absolute",
+            fontFamily: serif,
+            fontSize: "clamp(11px, 1vw, 15px)",
+            fontWeight: 700,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#1a1817",
+            whiteSpace: "nowrap",
+            top: "18%",
+            left: "11.5vw",
+          }}>
+            Unser
+          </span>
+          <span style={{
+            fontFamily: serif,
+            fontWeight: 700,
+            fontSize: "clamp(100px, 16vw, 240px)",
+            lineHeight: 1,
+            color: "#1a1817",
+            whiteSpace: "nowrap",
+            userSelect: "none",
+            letterSpacing: "-0.03em",
+            paddingRight: "clamp(24px, 3vw, 48px)",
+            display: "block",
+          }}>
+            Ansatz
+          </span>
+        </div>
+      </div>
+
     </section>
   );
 }
