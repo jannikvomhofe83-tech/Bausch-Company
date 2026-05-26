@@ -1,116 +1,112 @@
-"use client";
-
-import { Button } from "@relume_io/relume-ui";
 import React from "react";
-import { RxChevronRight } from "react-icons/rx";
+
+const serif = "'EB Garamond', Georgia, serif";
 
 export function Layout373() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
-        <div className="rb-12 mb-12 md:mb-18 lg:mb-20">
-          <div className="mx-auto max-w-lg text-center">
-            <p className="mb-3 font-semibold md:mb-4">Grundsätze</p>
-            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              Klarheit vor Geschwindigkeit
-            </h2>
-            <p className="md:text-md">
-              Wir nehmen uns Zeit für präzise Rollenklärung.
-            </p>
-          </div>
+    <section style={{
+      background: "#fff",
+      padding: "clamp(80px, 10vw, 140px) clamp(40px, 7%, 120px)",
+    }}>
+
+      {/* Section label + headline — centered */}
+      <div style={{ textAlign: "center", marginBottom: "clamp(48px, 7vw, 96px)" }}>
+        <p style={{
+          fontFamily: serif,
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "#00693C",
+          margin: 0,
+          marginBottom: "clamp(16px, 2vw, 24px)",
+        }}>
+          Warum wir
+        </p>
+        <h2 style={{
+          fontFamily: serif,
+          fontWeight: 900,
+          fontSize: "clamp(24px, 3vw, 44px)",
+          lineHeight: 1.15,
+          letterSpacing: "-0.025em",
+          color: "#1a1817",
+          margin: 0,
+        }}>
+          Jedes gute Gespräch beginnt mit gutem Zuhören.
+        </h2>
+      </div>
+
+      {/* Two-column body — separated by vertical line */}
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        borderTop: "1px solid rgba(26,24,23,0.15)",
+        paddingTop: "clamp(32px, 4vw, 52px)",
+      }}>
+
+        {/* Left — lead paragraph, larger */}
+        <div style={{ paddingRight: "clamp(32px, 5vw, 72px)" }}>
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(17px, 1.7vw, 24px)",
+            fontWeight: 400,
+            lineHeight: 1.65,
+            color: "#1a1817",
+            margin: 0,
+          }}>
+            Die Referenzen unserer zufriedenen Kunden sind ein Spiegel unserer
+            Expertise. Doch das Geheimnis unseres Erfolges steht am Anfang einer
+            jeden neuen Suche: wir hören Ihnen zu.
+          </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:gap-8">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
-            <div className="grid grid-cols-1 border border-border-primary sm:col-span-2 sm:row-span-1">
-              <div className="flex flex-1 flex-col justify-center p-6 md:p-8 lg:p-12">
-                <div>
-                  <div className="mb-5 md:mb-6">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                      className="size-12"
-                      alt="Relume logo 3"
-                    />
-                  </div>
-                  <h3 className="mb-5 text-4xl font-bold leading-[1.2] md:mb-6 md:text-5xl lg:text-6xl">
-                    Keine oberflächliche Vermittlung
-                  </h3>
-                  <p>
-                    Jede Besetzung wird wie eine strategische Entscheidung
-                    behandelt.
-                  </p>
-                </div>
-                <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                  <Button title="Mehr" variant="secondary">
-                    Mehr
-                  </Button>
-                  <Button
-                    title="Lesen"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Lesen
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col border border-border-primary">
-              <div className="flex h-full flex-col justify-between p-6 md:p-8 lg:p-6">
-                <div>
-                  <div className="mb-3 md:mb-4">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                      alt="Relume logo 1"
-                      className="size-12"
-                    />
-                  </div>
-                  <h3 className="mb-2 text-xl font-bold md:text-2xl">
-                    Tiefgreifende Kandidatenanalyse
-                  </h3>
-                  <p>Wir kennen die Menschen hinter den Lebensläufen.</p>
-                </div>
-                <div className="mt-5 flex items-center gap-4 md:mt-6">
-                  <Button
-                    title="Mehr"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Mehr
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col border border-border-primary">
-              <div className="flex h-full flex-col justify-between p-6 md:p-8 lg:p-6">
-                <div>
-                  <div className="mb-3 md:mb-4">
-                    <img
-                      src="https://d22po4pjz3o32e.cloudfront.net/relume-icon.svg"
-                      alt="Relume logo 2"
-                      className="size-12"
-                    />
-                  </div>
-                  <h3 className="mb-2 text-xl font-bold md:text-2xl">
-                    Tiefgreifende Kandidatenanalyse
-                  </h3>
-                  <p>Wir kennen die Menschen hinter den Lebensläufen.</p>
-                </div>
-                <div className="mt-5 flex items-center gap-4 md:mt-6">
-                  <Button
-                    title="Mehr"
-                    variant="link"
-                    size="link"
-                    iconRight={<RxChevronRight />}
-                  >
-                    Mehr
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+
+        {/* Right — multiple paragraphs, smaller */}
+        <div style={{
+          paddingLeft: "clamp(32px, 5vw, 72px)",
+          borderLeft: "1px solid rgba(26,24,23,0.15)",
+          display: "flex",
+          flexDirection: "column",
+          gap: "clamp(20px, 2.5vw, 32px)",
+        }}>
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(13px, 1vw, 16px)",
+            fontWeight: 400,
+            lineHeight: 1.85,
+            color: "rgba(26,24,23,0.65)",
+            margin: 0,
+          }}>
+            Mit dem klassischen Positionsprofil allein lassen sich, mit etwas
+            Glück, passable Kandidaten finden. Wer jedoch das Vertrauen der
+            besten Kandidaten im Markt gewinnen will, der muß bis ins Detail
+            verstanden haben, welche Erwartungen der Kunde hegt und was genau
+            das Unternehmen und dessen individuelle Kultur auszeichnet.
+          </p>
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(13px, 1vw, 16px)",
+            fontWeight: 400,
+            lineHeight: 1.85,
+            color: "rgba(26,24,23,0.65)",
+            margin: 0,
+          }}>
+            Seit 2004 haben wir über 95% unserer Suchen erfolgreich
+            abschliessen können.
+          </p>
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(14px, 1.1vw, 18px)",
+            fontWeight: 700,
+            lineHeight: 1.6,
+            color: "#1a1817",
+            margin: 0,
+            fontStyle: "italic",
+          }}>
+            Weil wir zuhören. Und verstehen.
+          </p>
         </div>
       </div>
+
     </section>
   );
 }

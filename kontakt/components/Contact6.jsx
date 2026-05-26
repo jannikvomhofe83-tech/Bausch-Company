@@ -1,143 +1,261 @@
-"use client";
+import React, { useState } from "react";
 
-import {
-  Button,
-  Checkbox,
-  Input,
-  Label,
-  RadioGroup,
-  RadioGroupItem,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Textarea,
-} from "@relume_io/relume-ui";
-import React from "react";
-import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
+const serif = "'EB Garamond', Georgia, serif";
+
+const labelStyle = {
+  fontFamily: serif,
+  fontSize: 11,
+  fontWeight: 700,
+  letterSpacing: "0.12em",
+  textTransform: "uppercase",
+  color: "rgba(26,24,23,0.5)",
+  display: "block",
+  marginBottom: 8,
+};
+
+const inputStyle = {
+  fontFamily: serif,
+  fontSize: "clamp(14px, 1.1vw, 16px)",
+  fontWeight: 400,
+  color: "#1a1817",
+  background: "transparent",
+  border: "none",
+  borderBottom: "1px solid rgba(26,24,23,0.2)",
+  outline: "none",
+  padding: "8px 0",
+  width: "100%",
+  display: "block",
+};
 
 export function Contact6() {
+  const [role, setRole] = useState("");
+
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container grid grid-cols-1 items-start gap-y-12 md:grid-flow-row md:grid-cols-2 md:gap-x-12 lg:grid-flow-col lg:gap-x-20 lg:gap-y-16">
+    <section style={{
+      background: "#fff",
+      padding: "clamp(64px, 8vw, 100px) clamp(40px, 7%, 120px)",
+      borderTop: "1px solid rgba(26,24,23,0.12)",
+    }}>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1.4fr",
+        gap: "clamp(48px, 8vw, 120px)",
+        alignItems: "start",
+      }}>
+
+        {/* Left: office addresses */}
         <div>
-          <div className="mb-6 md:mb-8">
-            <p className="mb-3 font-semibold md:mb-4">Kontakt</p>
-            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-              Direkt sprechen
-            </h2>
-            <p className="md:text-md">
-              Füllen Sie das Formular aus. Wir melden uns innerhalb von 24
-              Stunden.
+          <h2 style={{
+            fontFamily: serif,
+            fontWeight: 900,
+            fontSize: "clamp(24px, 3vw, 44px)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.025em",
+            color: "#1a1817",
+            margin: 0,
+            marginBottom: "clamp(40px, 5vw, 64px)",
+          }}>
+            Direkt sprechen.
+          </h2>
+
+          {/* München */}
+          <div style={{ marginBottom: "clamp(32px, 4vw, 52px)" }}>
+            <p style={{
+              fontFamily: serif,
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "#00693C",
+              margin: 0,
+              marginBottom: "clamp(12px, 1.5vw, 18px)",
+            }}>
+              München
             </p>
+            <p style={{
+              fontFamily: serif,
+              fontSize: "clamp(13px, 1vw, 16px)",
+              fontWeight: 400,
+              lineHeight: 1.85,
+              color: "#1a1817",
+              margin: 0,
+            }}>
+              Stollbergstr. 22<br />
+              80539 München<br />
+              Germany
+            </p>
+            <div style={{ marginTop: "clamp(10px, 1.2vw, 14px)" }}>
+              <a href="tel:+498939292939" style={{
+                fontFamily: serif,
+                fontSize: "clamp(13px, 1vw, 16px)",
+                color: "#1a1817",
+                textDecoration: "none",
+                display: "block",
+              }}>
+                +49 89 39 29 29 39
+              </a>
+              <a href="mailto:info@bauschandcompany.com" style={{
+                fontFamily: serif,
+                fontSize: "clamp(13px, 1vw, 16px)",
+                color: "#00693C",
+                textDecoration: "none",
+                display: "block",
+                marginTop: 4,
+              }}>
+                info@bauschandcompany.com
+              </a>
+            </div>
           </div>
-          <div className="grid grid-cols-1 gap-4 py-2">
-            <div className="flex items-center gap-4">
-              <BiEnvelope className="size-6 flex-none" />
-              <p>hello@relume.io</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <BiPhone className="size-6 flex-none" />
-              <p>+49 (0) 40 123 456</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <BiMap className="size-6 flex-none" />
-              <p>Bausch & Company, Hamburg, Deutschland</p>
+
+          {/* Hamburg */}
+          <div>
+            <p style={{
+              fontFamily: serif,
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+              color: "#00693C",
+              margin: 0,
+              marginBottom: "clamp(12px, 1.5vw, 18px)",
+            }}>
+              Hamburg
+            </p>
+            <p style={{
+              fontFamily: serif,
+              fontSize: "clamp(13px, 1vw, 16px)",
+              fontWeight: 400,
+              lineHeight: 1.85,
+              color: "#1a1817",
+              margin: 0,
+            }}>
+              Große Theaterstraße 14<br />
+              20354 Hamburg
+            </p>
+            <div style={{ marginTop: "clamp(10px, 1.2vw, 14px)" }}>
+              <a href="tel:+494075112112" style={{
+                fontFamily: serif,
+                fontSize: "clamp(13px, 1vw, 16px)",
+                color: "#1a1817",
+                textDecoration: "none",
+                display: "block",
+              }}>
+                +49 40 75 112 112
+              </a>
+              <a href="mailto:info@bauschandcompany.com" style={{
+                fontFamily: serif,
+                fontSize: "clamp(13px, 1vw, 16px)",
+                color: "#00693C",
+                textDecoration: "none",
+                display: "block",
+                marginTop: 4,
+              }}>
+                info@bauschandcompany.com
+              </a>
             </div>
           </div>
         </div>
-        <form className="grid max-w-lg grid-cols-1 grid-rows-[auto_auto] gap-6">
-          <div className="grid grid-cols-2 gap-6">
-            <div className="grid w-full items-center">
-              <Label htmlFor="firstName" className="mb-2">
-                Vorname
-              </Label>
-              <Input type="text" id="firstName" />
+
+        {/* Right: contact form */}
+        <form style={{ display: "flex", flexDirection: "column", gap: "clamp(20px, 2.5vw, 28px)" }}>
+
+          {/* Name row */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(16px, 2vw, 24px)" }}>
+            <div>
+              <label style={labelStyle}>Vorname</label>
+              <input type="text" style={inputStyle} />
             </div>
-            <div className="grid w-full items-center">
-              <Label htmlFor="lastName" className="mb-2">
-                Nachname
-              </Label>
-              <Input type="text" id="lastName" />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="grid w-full items-center">
-              <Label htmlFor="email" className="mb-2">
-                E-Mail
-              </Label>
-              <Input type="email" id="email" />
-            </div>
-            <div className="grid w-full items-center">
-              <Label htmlFor="phone" className="mb-2">
-                Telefon
-              </Label>
-              <Input type="text" id="phone" />
+            <div>
+              <label style={labelStyle}>Nachname</label>
+              <input type="text" style={inputStyle} />
             </div>
           </div>
-          <div className="grid w-full items-center">
-            <Label className="mb-2">Thema</Label>
-            <Select>
-              <SelectTrigger>
-                <SelectValue placeholder="Bitte wählen" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="first-choice">First Choice</SelectItem>
-                <SelectItem value="second-choice">Second Choice</SelectItem>
-                <SelectItem value="third-choice">Third Choice</SelectItem>
-              </SelectContent>
-            </Select>
+
+          {/* Email + Phone */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(16px, 2vw, 24px)" }}>
+            <div>
+              <label style={labelStyle}>E-Mail</label>
+              <input type="email" style={inputStyle} />
+            </div>
+            <div>
+              <label style={labelStyle}>Telefon</label>
+              <input type="text" style={inputStyle} />
+            </div>
           </div>
-          <div className="grid w-full items-center py-3 md:py-4">
-            <Label className="mb-3 md:mb-4">Wer sind Sie?</Label>
-            <RadioGroup className="grid grid-cols-2 gap-x-6 gap-y-3.5">
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Geschäftsführer" id="#first_choice" />
-                <Label htmlFor="#first_choice">Geschäftsführer</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="First choice" id="#second_choice" />
-                <Label htmlFor="#second_choice">Gesellschafter</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="First choice" id="#third_choice" />
-                <Label htmlFor="#third_choice">Kandidat</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="First choice" id="#fourth_choice" />
-                <Label htmlFor="#fourth_choice">Berater</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="First choice" id="#fifth_choice" />
-                <Label htmlFor="#fifth_choice">Sonstiges</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="First choice" id="#other" />
-                <Label htmlFor="#other">Andere</Label>
-              </div>
-            </RadioGroup>
+
+          {/* Role selector */}
+          <div>
+            <label style={labelStyle}>Wer sind Sie?</label>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 4 }}>
+              {["Geschäftsführer", "Gesellschafter", "Kandidat", "Berater", "Sonstiges"].map((r) => (
+                <button
+                  key={r}
+                  type="button"
+                  onClick={() => setRole(r)}
+                  style={{
+                    fontFamily: serif,
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    padding: "6px 14px",
+                    border: `1px solid ${role === r ? "#1a1817" : "rgba(26,24,23,0.2)"}`,
+                    background: role === r ? "#1a1817" : "transparent",
+                    color: role === r ? "#fff" : "#1a1817",
+                    cursor: "pointer",
+                    transition: "all 0.15s ease",
+                  }}
+                >
+                  {r}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="grid w-full items-center">
-            <Label htmlFor="message" className="mb-2">
-              Nachricht
-            </Label>
-            <Textarea
-              id="message"
-              placeholder="Ihre Nachricht hier"
-              className="min-h-[11.25rem] overflow-auto"
+
+          {/* Message */}
+          <div>
+            <label style={labelStyle}>Ihre Nachricht</label>
+            <textarea
+              style={{ ...inputStyle, minHeight: 140, resize: "vertical", lineHeight: 1.65 }}
+              placeholder="Worum geht es?"
             />
           </div>
-          <div className="mb-3 flex items-center space-x-2 text-sm md:mb-4">
-            <Checkbox id="terms" />
-            <Label htmlFor="terms" className="cursor-pointer">
+
+          {/* Privacy */}
+          <label style={{ display: "flex", alignItems: "flex-start", gap: 10, cursor: "pointer" }}>
+            <input type="checkbox" style={{ marginTop: 3, accentColor: "#1a1817" }} />
+            <span style={{
+              fontFamily: serif,
+              fontSize: 12,
+              color: "rgba(26,24,23,0.55)",
+              lineHeight: 1.6,
+            }}>
               Ich akzeptiere die Datenschutzerklärung
-            </Label>
-          </div>
+            </span>
+          </label>
+
+          {/* Submit */}
           <div>
-            <Button title="Senden">Senden</Button>
+            <button
+              type="submit"
+              style={{
+                fontFamily: serif,
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                background: "#1a1817",
+                color: "#fff",
+                border: "none",
+                padding: "14px 40px",
+                cursor: "pointer",
+              }}
+            >
+              Absenden
+            </button>
           </div>
         </form>
+
       </div>
     </section>
   );

@@ -1,73 +1,100 @@
-"use client";
-
 import React from "react";
-import { BiEnvelope, BiMap, BiPhone } from "react-icons/bi";
+
+const serif = "'EB Garamond', Georgia, serif";
 
 export function Contact15() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container">
+    <section style={{
+      background: "#fff",
+      padding: "clamp(64px, 8vw, 100px) clamp(40px, 7%, 120px)",
+      borderTop: "1px solid rgba(26,24,23,0.12)",
+    }}>
+
+      <p style={{
+        fontFamily: serif,
+        fontSize: 11,
+        fontWeight: 700,
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
+        color: "#00693C",
+        margin: 0,
+        marginBottom: "clamp(32px, 4vw, 52px)",
+      }}>
+        Standorte
+      </p>
+
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "clamp(32px, 5vw, 64px)",
+      }}>
+
+        {/* München */}
         <div>
-          <div className="mb-12 grid auto-cols-fr grid-cols-1 gap-x-12 gap-y-12 md:mb-20 md:grid-cols-[1fr_.75fr] md:gap-x-20 md:gap-y-16">
-            <div className="rb-12 max-w-lg">
-              <p className="mb-3 font-semibold md:mb-4">Kontakt</p>
-              <h2 className="rb-5 mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
-                Erreichen Sie uns
-              </h2>
-              <p className="md:text-md">
-                Direkt, ohne Umschweife. Wir sind da.
-              </p>
-            </div>
-            <div className="flex flex-col">
-              <div className="grid auto-cols-fr grid-cols-1 gap-x-4 gap-y-6 py-2">
-                <div className="flex flex-row">
-                  <div className="mr-4 md:mb-4">
-                    <BiEnvelope className="size-6" />
-                  </div>
-                  <div>
-                    <h3 className="mb-2 text-md font-bold leading-[1.4] md:text-xl">
-                      E-Mail
-                    </h3>
-                    <a className="underline" href="#">
-                      hello@relume.io
-                    </a>
-                  </div>
-                </div>
-                <div className="flex flex-row">
-                  <div className="mr-4 md:mb-4">
-                    <BiPhone className="size-6" />
-                  </div>
-                  <div>
-                    <h3 className="mb-2 text-md font-bold leading-[1.4] md:text-xl">
-                      Telefon
-                    </h3>
-                    <a className="underline" href="#">
-                      +49 (0) 40 123 456
-                    </a>
-                  </div>
-                </div>
-                <div className="flex flex-row">
-                  <div className="mr-4 md:mb-4">
-                    <BiMap className="size-6" />
-                  </div>
-                  <div>
-                    <h3 className="mb-2 text-md font-bold leading-[1.4] md:text-xl">
-                      Büro
-                    </h3>
-                    <p>Bausch & Company, Hamburg, Deutschland</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <img
-            src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
-            className="w-full object-cover"
-            alt="Relume placeholder image"
+          <p style={{
+            fontFamily: serif,
+            fontWeight: 700,
+            fontSize: "clamp(18px, 1.8vw, 26px)",
+            letterSpacing: "-0.01em",
+            color: "#1a1817",
+            margin: 0,
+            marginBottom: "clamp(16px, 2vw, 24px)",
+          }}>
+            München
+          </p>
+          <iframe
+            title="Bausch & Company München"
+            src="https://maps.google.com/maps?q=Stollbergstr.+22,+80539+M%C3%BCnchen&output=embed&z=15"
+            width="100%"
+            height="320"
+            style={{ border: 0, display: "block", marginBottom: "clamp(14px, 1.8vw, 20px)" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
           />
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(13px, 1vw, 15px)",
+            lineHeight: 1.85,
+            color: "rgba(26,24,23,0.65)",
+            margin: 0,
+          }}>
+            Stollbergstr. 22, 80539 München
+          </p>
         </div>
+
+        {/* Hamburg */}
+        <div>
+          <p style={{
+            fontFamily: serif,
+            fontWeight: 700,
+            fontSize: "clamp(18px, 1.8vw, 26px)",
+            letterSpacing: "-0.01em",
+            color: "#1a1817",
+            margin: 0,
+            marginBottom: "clamp(16px, 2vw, 24px)",
+          }}>
+            Hamburg
+          </p>
+          <iframe
+            title="Bausch & Company Hamburg"
+            src="https://maps.google.com/maps?q=Gro%C3%9Fe+Theaterstra%C3%9Fe+14,+20354+Hamburg&output=embed&z=15"
+            width="100%"
+            height="320"
+            style={{ border: 0, display: "block", marginBottom: "clamp(14px, 1.8vw, 20px)" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <p style={{
+            fontFamily: serif,
+            fontSize: "clamp(13px, 1vw, 15px)",
+            lineHeight: 1.85,
+            color: "rgba(26,24,23,0.65)",
+            margin: 0,
+          }}>
+            Große Theaterstraße 14, 20354 Hamburg
+          </p>
+        </div>
+
       </div>
     </section>
   );

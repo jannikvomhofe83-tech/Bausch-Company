@@ -3,6 +3,7 @@ import { Navbar2 } from "./components/Navbar2";
 import { HeroInsights } from "./components/HeroInsights";
 import { Blog32 } from "./components/Blog32";
 import { LeadMagnetTeaser } from "./components/LeadMagnetTeaser";
+import { SocialSection } from "./components/SocialSection";
 import { Footer6 } from "./components/Footer6";
 
 export default function Page() {
@@ -14,6 +15,7 @@ export default function Page() {
       <HeroInsights />
       <div id="artikel"><Blog32 /></div>
       <LeadMagnetTeaser />
+      <SocialSection />
       <Footer6 />
     </div>
   );
